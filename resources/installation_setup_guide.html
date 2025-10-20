@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation & Setup Guide - Digital Doubles</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .guide-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .guide-content h2 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .guide-content h3 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .guide-content h4 {
+            color: var(--text-color);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .guide-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .guide-content ul, .guide-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .guide-content li {
+            margin-bottom: 0.5rem;
+        }
+        .guide-content code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .guide-content pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .guide-content pre code {
+            background: none;
+            padding: 0;
+        }
+        .toc {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+        .toc ol {
+            margin-left: 1.5rem;
+        }
+        .toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Installation & Setup Guide</h1>
+            <p class="subtitle">Digital Doubles - Week 1</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../syllabus.html">Syllabus</a></li>
+            <li><a href="../weeks.html">Weekly Materials</a></li>
+            <li><a href="../week1.html">Week 1</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <p>This guide will walk you through setting up your development environment for the Digital Doubles course. Follow the instructions for your operating system carefully.</p>
+        </section>
+
+        <section class="content-section">
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ol>
+                    <li><a href="#prerequisites">Prerequisites</a></li>
+                    <li><a href="#installing-python">Installing Python</a></li>
+                    <li><a href="#installing-packages">Installing Required Packages</a></li>
+                    <li><a href="#verifying">Verifying Your Installation</a></li>
+                    <li><a href="#code-editor">Code Editor Setup</a></li>
+                    <li><a href="#troubleshooting">Common Issues & Troubleshooting</a></li>
+                    <li><a href="#quick-reference">Quick Reference Commands</a></li>
+                </ol>
+            </div>
+        </section>
+
+        <div class="guide-content">
+            <h2 id="prerequisites">Prerequisites</h2>
+            <p>Before you begin, make sure you have:</p>
+            <ul>
+                <li>A computer with administrator/sudo access</li>
+                <li>At least 2GB of free disk space</li>
+                <li>A webcam (built-in or external USB)</li>
+                <li>Internet connection for downloading packages</li>
+            </ul>
+
+            <h2 id="installing-python">Installing Python</h2>
+
+            <h3>Check if Python is Already Installed</h3>
+            <p>First, check if you already have Python installed:</p>
+
+            <h4>Windows:</h4>
+            <ol>
+                <li>Open Command Prompt (search for "cmd" in Start menu)</li>
+                <li>Type: <code>python --version</code> or <code>python3 --version</code></li>
+            </ol>
+
+            <h4>macOS/Linux:</h4>
+            <ol>
+                <li>Open Terminal</li>
+                <li>Type: <code>python3 --version</code></li>
+            </ol>
+
+            <div class="info-box">
+                <strong>✓ Good to go!</strong> If you see <code>Python 3.8</code> or higher, skip to <a href="#installing-packages">Installing Required Packages</a>.
+            </div>
+
+            <h3>Installing Python from Scratch</h3>
+
+            <h4>Windows</h4>
+            <p><strong>1. Download Python:</strong></p>
+            <ul>
+                <li>Go to <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                <li>Click "Download Python 3.x.x" (get the latest 3.8+ version)</li>
+            </ul>
+
+            <p><strong>2. Install Python:</strong></p>
+            <ul>
+                <li>Run the downloaded installer</li>
+                <li><strong>IMPORTANT:</strong> Check the box "Add Python to PATH" at the bottom</li>
+                <li>Click "Install Now"</li>
+                <li>Wait for installation to complete</li>
+            </ul>
+
+            <p><strong>3. Verify Installation:</strong></p>
+            <ul>
+                <li>Open a new Command Prompt window</li>
+                <li>Type: <code>python --version</code></li>
+                <li>You should see: <code>Python 3.x.x</code></li>
+            </ul>
+
+            <h4>macOS</h4>
+            <p><strong>Option 1: Using Homebrew (Recommended)</strong></p>
+
+            <p><strong>1. Install Homebrew</strong> (if not already installed):</p>
+            <ul>
+                <li>Open Terminal</li>
+                <li>Paste and run:</li>
+            </ul>
+            <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+
+            <p><strong>2. Install Python:</strong></p>
+            <pre><code>brew install python3</code></pre>
+
+            <p><strong>3. Verify Installation:</strong></p>
+            <pre><code>python3 --version</code></pre>
+
+            <p><strong>Option 2: Direct Download</strong></p>
+            <ol>
+                <li>Go to <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a></li>
+                <li>Download the macOS installer</li>
+                <li>Run the installer and follow prompts</li>
+                <li>Verify with <code>python3 --version</code> in Terminal</li>
+            </ol>
+
+            <h4>Linux (Ubuntu/Debian)</h4>
+            <p>Python 3 is usually pre-installed. If not:</p>
+            <pre><code>sudo apt update
+sudo apt install python3 python3-pip</code></pre>
+
+            <p>Verify:</p>
+            <pre><code>python3 --version</code></pre>
+
+            <h2 id="installing-packages">Installing Required Packages</h2>
+            <p>Now we'll install OpenCV, NumPy, and Matplotlib.</p>
+
+            <h3>Step 1: Open Your Terminal/Command Prompt</h3>
+            <ul>
+                <li><strong>Windows:</strong> Command Prompt or PowerShell</li>
+                <li><strong>macOS/Linux:</strong> Terminal</li>
+            </ul>
+
+            <h3>Step 2: Install pip (Python Package Manager)</h3>
+            <p><strong>Check if pip is installed:</strong></p>
+
+            <p>Windows:</p>
+            <pre><code>python -m pip --version</code></pre>
+
+            <p>macOS/Linux:</p>
+            <pre><code>pip3 --version</code></pre>
+
+            <p>If pip is not found, install it:</p>
+
+            <p><strong>Windows:</strong></p>
+            <pre><code>python -m ensurepip --upgrade</code></pre>
+
+            <p><strong>macOS/Linux:</strong></p>
+            <pre><code>sudo apt install python3-pip</code></pre>
+
+            <h3>Step 3: Install Required Packages</h3>
+
+            <p><strong>Windows:</strong></p>
+            <pre><code>pip install opencv-python numpy matplotlib</code></pre>
+
+            <p><strong>macOS/Linux:</strong></p>
+            <pre><code>pip3 install opencv-python numpy matplotlib</code></pre>
+
+            <div class="info-box">
+                <p><strong>This will install:</strong></p>
+                <ul>
+                    <li><strong>opencv-python:</strong> OpenCV library for computer vision</li>
+                    <li><strong>numpy:</strong> Numerical computing library</li>
+                    <li><strong>matplotlib:</strong> Plotting and visualization library</li>
+                </ul>
+                <p>The installation may take a few minutes. You'll see progress messages.</p>
+            </div>
+
+            <h2 id="verifying">Verifying Your Installation</h2>
+            <p>Let's make sure everything is installed correctly.</p>
+
+            <ol>
+                <li>Download the Week 1 code examples from the <a href="../week1.html">Week 1 page</a></li>
+                <li>Find the <code>setup_verification.py</code> file in the <code>01_setup_verification</code> folder</li>
+                <li>Run the script:</li>
+            </ol>
+
+            <p><strong>Windows:</strong></p>
+            <pre><code>python setup_verification.py</code></pre>
+
+            <p><strong>macOS/Linux:</strong></p>
+            <pre><code>python3 setup_verification.py</code></pre>
+
+            <h3>Expected Output</h3>
+            <p>You should see something like:</p>
+            <pre><code>Python version:
+3.10.x ...
+
+✓ OpenCV installed successfully
+  OpenCV version: 4.8.1
+✓ NumPy installed successfully
+  NumPy version: 1.24.3
+✓ Matplotlib installed successfully
+  Matplotlib version: 3.7.1
+
+If you see check marks (✓) for all packages, you're ready to go!</code></pre>
+
+            <h2 id="code-editor">Code Editor Setup</h2>
+            <p>You'll need a code editor to write Python. Here are recommended options:</p>
+
+            <h3>Visual Studio Code (Recommended)</h3>
+            
+            <h4>Why VS Code?</h4>
+            <ul>
+                <li>Free and open-source</li>
+                <li>Excellent Python support</li>
+                <li>Built-in terminal</li>
+                <li>Great for beginners and professionals</li>
+            </ul>
+
+            <h4>Installation:</h4>
+            <ol>
+                <li>Download from <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
+                <li>Install for your operating system</li>
+                <li>Open VS Code</li>
+                <li>Install the Python extension:
+                    <ul>
+                        <li>Click Extensions icon (or Ctrl+Shift+X / Cmd+Shift+X)</li>
+                        <li>Search for "Python"</li>
+                        <li>Install the Microsoft Python extension</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Setup:</h4>
+            <ol>
+                <li>Open VS Code</li>
+                <li>Open a folder for your course work (File → Open Folder)</li>
+                <li>Create a new file: <code>test.py</code></li>
+                <li>VS Code should automatically detect Python</li>
+            </ol>
+
+            <h3>IDLE (Comes with Python)</h3>
+            <p><strong>Good for:</strong></p>
+            <ul>
+                <li>Absolute beginners</li>
+                <li>Simple scripts</li>
+            </ul>
+            <p>IDLE is automatically installed with Python. Search for "IDLE" in your applications.</p>
+
+            <h2 id="troubleshooting">Common Issues & Troubleshooting</h2>
+
+            <h3>Issue: "pip not found" or "pip is not recognized"</h3>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Make sure you added Python to PATH during installation (Windows)</li>
+                <li>Try using <code>python -m pip</code> instead of just <code>pip</code></li>
+                <li>On macOS/Linux, use <code>pip3</code> instead of <code>pip</code></li>
+            </ul>
+
+            <h3>Issue: "Permission denied" when installing packages</h3>
+            <p><strong>Solution (macOS/Linux):</strong></p>
+            <pre><code>pip3 install --user opencv-python numpy matplotlib</code></pre>
+
+            <p><strong>Solution (Windows):</strong></p>
+            <ul>
+                <li>Run Command Prompt as Administrator</li>
+                <li>Or use <code>--user</code> flag: <code>pip install --user opencv-python numpy matplotlib</code></li>
+            </ul>
+
+            <h3>Issue: OpenCV window doesn't display or crashes</h3>
+            <p><strong>Windows:</strong></p>
+            <ul>
+                <li>Make sure you're not running the script from certain IDEs that don't support GUI windows</li>
+                <li>Run the script from Command Prompt instead</li>
+            </ul>
+
+            <p><strong>macOS:</strong></p>
+            <ul>
+                <li>You might need XQuartz for display: <code>brew install --cask xquartz</code></li>
+            </ul>
+
+            <p><strong>Linux:</strong></p>
+            <ul>
+                <li>Install additional packages:</li>
+            </ul>
+            <pre><code>sudo apt-get install python3-tk
+sudo apt-get install libgl1-mesa-glx</code></pre>
+
+            <h3>Issue: Multiple Python versions causing conflicts</h3>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Use virtual environments to isolate packages</li>
+                <li>Specify Python version explicitly:
+                    <ul>
+                        <li>Windows: <code>py -3.10</code> or <code>python3.10</code></li>
+                        <li>macOS/Linux: <code>python3.10</code></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Issue: Import errors after installation</h3>
+            <p><strong>Solution:</strong></p>
+            <p>1. Make sure you're using the same Python that pip installed to:</p>
+            <pre><code># Windows
+where python
+pip show opencv-python
+
+# macOS/Linux
+which python3
+pip3 show opencv-python</code></pre>
+            <p>2. Both should point to the same Python installation</p>
+
+            <h3>Issue: "cv2.imshow() doesn't work on Mac"</h3>
+            <p><strong>Solution:</strong></p>
+            <p>This is a known issue. Try:</p>
+            <pre><code>import cv2
+
+cv2.namedWindow("window", cv2.WINDOW_NORMAL)
+img = cv2.imread('image.jpg')
+cv2.imshow('window', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+
+            <p>Or use matplotlib for display:</p>
+            <pre><code>import cv2
+import matplotlib.pyplot as plt
+
+img = cv2.imread('image.jpg')
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+plt.imshow(img_rgb)
+plt.show()</code></pre>
+
+            <h2 id="quick-reference">Quick Reference Commands</h2>
+
+            <h3>Running Python Scripts</h3>
+
+            <p><strong>Windows:</strong></p>
+            <pre><code>python script_name.py</code></pre>
+
+            <p><strong>macOS/Linux:</strong></p>
+            <pre><code>python3 script_name.py</code></pre>
+
+            <div class="info-box" style="margin-top: 3rem;">
+                <p><strong>Questions?</strong> Email <a href="mailto:jiwon.shin@nyu.edu">jiwon.shin@nyu.edu</a></p>
+            </div>
+
+            <p style="margin-top: 3rem; text-align: center; color: #999; font-size: 0.9rem;">
+                <em>Last Updated: October 2025</em>
+            </p>
+        </div>
+
+        <div class="text-center mt-2">
+            <a href="../week1.html" class="btn">← Back to Week 1</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Digital Doubles - DM-GY 9201 B</p>
+        <p>NYU Tandon School of Engineering | Integrated Design & Media</p>
+        <p>Instructor: Jiwon Shin</p>
+    </footer>
+</body>
+</html>

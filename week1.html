@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Introduction & Image Processing - Digital Doubles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lecture-notes {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .lecture-notes h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .lecture-notes h4 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .lecture-notes h5 {
+            color: var(--text-color);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .lecture-notes p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .lecture-notes ul, .lecture-notes ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .lecture-notes li {
+            margin-bottom: 0.5rem;
+        }
+        .lecture-notes code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .lecture-notes pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .lecture-notes pre code {
+            background: none;
+            padding: 0;
+        }
+        .lecture-notes a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lecture-notes a:hover {
+            text-decoration: underline;
+        }
+        .lecture-notes .toc {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+        .lecture-notes .toc ol {
+            margin-left: 1.5rem;
+        }
+        .lecture-notes blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #666;
+        }
+        .section-divider {
+            border-top: 2px solid var(--border-color);
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Week 1: Introduction & Image Processing Fundamentals</h1>
+            <p class="subtitle">October 24, 2025</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="weeks.html" class="active">Weekly Materials</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section class="content-section">
+            <h2>Overview</h2>
+            <p>
+                This week introduces the fundamentals of digital image processing and sets up our development 
+                environment. We'll explore how images are represented as data, learn the basics of Python and 
+                OpenCV, and begin manipulating images programmatically.
+            </p>
+            
+            <div class="info-box" style="margin-top: 1.5rem; background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <h3 style="margin-top: 0;">⚙️ Installation & Setup</h3>
+                <p style="margin-bottom: 0.5rem;">Before class, please set up your development environment by following our comprehensive installation guide:</p>
+                <p style="margin-bottom: 0;">
+                    <a href="resources/installation_setup_guide.html" class="btn" style="display: inline-block; margin-top: 0.5rem;">📖 View Installation & Setup Guide</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Topics Covered</h2>
+            <ul>
+                <li>Course overview and expectations</li>
+                <li>Setting up Python and OpenCV development environment (<a href="resources/installation_setup_guide.html">Installation Guide</a>)</li>
+                <li>Understanding digital images as NumPy arrays</li>
+                <li>Basic image manipulation: reading, displaying, and saving images</li>
+                <li>Color spaces and pixel manipulation</li>
+                <li>Introduction to image transformations</li>
+                <li>Basic filters and effects</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>💻 Code Examples</h2>
+            
+            <div class="week-card" style="background-color: #f0f7ff; border-left: 4px solid var(--primary-color);">
+                <h3>📦 Download All Week 1 Code Examples</h3>
+                <p>Complete package with 11 code examples, sample images, and detailed README.</p>
+                <p style="margin-top: 1rem;">
+                    <a href="resources/week1_code_examples.zip" class="btn" download style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        ⬇️ Download Code Examples (ZIP)
+                    </a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Includes all Python files, sample images, and comprehensive documentation
+                </p>
+            </div>
+            
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>📁 What's Included in the Download</h3>
+                <p style="margin-bottom: 1rem;">The zip file contains the following organized code examples:</p>
+                <ul style="margin-top: 1rem;">
+                    <li><strong>01_setup_verification/</strong> - Verify your installation</li>
+                    <li><strong>02_image_loading_basics/</strong> - Load, display, and save images</li>
+                    <li><strong>03_color_space_conversions/</strong> - Work with different color spaces</li>
+                    <li><strong>04_image_transformations/</strong> - Resize, crop, rotate images</li>
+                    <li><strong>05_basic_filters/</strong> - Apply blur and smoothing filters</li>
+                    <li><strong>06_brightness_contrast/</strong> - Adjust image intensity</li>
+                    <li><strong>07_thresholding_demo/</strong> - Convert to binary images</li>
+                    <li><strong>08_pixel_manipulation/</strong> - Direct pixel access</li>
+                    <li><strong>09_image_compositing/</strong> - Layer and combine images</li>
+                    <li><strong>10_complete_image_processor/</strong> - ⭐ Complete example combining all techniques</li>
+                    <li><strong>11_interactive_demo/</strong> - 🎁 Interactive controls (bonus)</li>
+                    <li><strong>Resources/</strong> - Sample images (mountain.jpg, ocean.jpg, pinkflower.jpg, whiteflower.jpg)</li>
+                    <li><strong>README.md</strong> - Detailed documentation with running instructions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FULL LECTURE NOTES START HERE -->
+        <section class="content-section">
+            <h2>📚 Lecture Notes</h2>
+            
+            <div class="lecture-notes">
+                <div class="toc">
+                    <h4>Table of Contents</h4>
+                    <ol>
+                        <li><a href="#course-overview">Course Overview</a></li>
+                        <li><a href="#what-is-cv">What is Computer Vision?</a></li>
+                        <li><a href="#artists">Artists Working with Computer Vision</a></li>
+                        <li><a href="#image-fundamentals">Digital Images Fundamentals</a></li>
+                        <li><a href="#opencv-numpy">OpenCV and NumPy Basics</a></li>
+                        <li><a href="#processing-techniques">Basic Image Processing Techniques</a></li>
+                        <li><a href="#assignments">Week 1 Assignments</a></li>
+                        <li><a href="#additional-resources">Additional Resources</a></li>
+                    </ol>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h3 id="course-overview">Course Overview</h3>
+                
+                <p>You can find the full <a href="syllabus.pdf" target="_blank">syllabus here</a>.</p>
+
+                <h4>About Digital Doubles</h4>
+                <p>Welcome to Digital Doubles! This course explores the fascinating intersection of physical and digital representation. Over the next seven weeks, we'll examine how physical entities can be captured, processed, and altered in digital space using <a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank">computer vision</a> and <a href="https://en.wikipedia.org/wiki/Machine_learning" target="_blank">machine learning</a> technologies.</p>
+
+                <p>By "digital doubles", I'm referring to the process of representing our physical selves as digital data. Through cameras, sensors, and algorithms, we can capture aspects of our physical presence and translate them into digital form - creating a kind of <a href="https://en.wikipedia.org/wiki/Digital_twin" target="_blank">digital twin</a> or mirror of ourselves.</p>
+
+                <h4>Course Goals</h4>
+                <p>By the end of this course, you will be able to:</p>
+                <ul>
+                    <li><strong>Implement</strong> advanced image and video processing techniques using <a href="https://www.python.org/" target="_blank">Python</a> and <a href="https://opencv.org/" target="_blank">OpenCV</a> for real-time applications</li>
+                    <li><strong>Design and develop</strong> interactive digital installations that respond to live video input and user interaction</li>
+                    <li><strong>Apply</strong> computer vision algorithms including face detection, object recognition, and pose estimation in creative contexts</li>
+                    <li><strong>Critically analyze</strong> the ethical implications of surveillance technologies, algorithmic bias, and digital representation</li>
+                    <li><strong>Integrate</strong> machine learning models with computer vision pipelines for generative and interactive applications</li>
+                    <li><strong>Optimize</strong> real-time video processing systems for performance and user experience</li>
+                </ul>
+
+                <h4>Course Structure</h4>
+                <p>This 7-week intensive course follows a progressive structure:</p>
+                <ul>
+                    <li><strong>Week 1:</strong> Introduction & Image Processing Fundamentals (this week)</li>
+                    <li><strong>Week 2:</strong> Advanced Image Processing & Video Fundamentals</li>
+                    <li><strong>Week 3:</strong> Live Video Capture & Real-time Processing</li>
+                    <li><strong>Week 4:</strong> Computer Vision - Detection & Feature Recognition</li>
+                    <li><strong>Week 5:</strong> Advanced CV & ML + Final Project Proposals</li>
+                    <li><strong>Week 6:</strong> Final Project Development Workshop</li>
+                    <li><strong>Week 7:</strong> Final Project Presentations</li>
+                </ul>
+
+                <h4>Assessment</h4>
+                <p>Your grade will be determined by:</p>
+                <ul>
+                    <li>Class Participation: 30%</li>
+                    <li>Weekly Lab Assignments: 20%</li>
+                    <li>Weekly Reading Responses: 15%</li>
+                    <li>Final Project Proposal: 10%</li>
+                    <li>Final Project: 25%</li>
+                </ul>
+
+                <h4>Final Project</h4>
+                <p>The culmination of this course is a working digital installation that utilizes live video capture and computer vision techniques. Your project should demonstrate technical proficiency while engaging meaningfully with concepts of digital representation, identity, or surveillance.</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="what-is-cv">What is Computer Vision?</h3>
+
+                <h4>Definition</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank">Computer Vision (CV)</a></strong> is a field of <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank">artificial intelligence</a> that trains computers to interpret and understand visual information from the world. Just as humans use their eyes and brains to make sense of what they see, computer vision systems use cameras (or other imaging sensors) and algorithms to extract meaningful information from images and videos.</p>
+
+                <p>At its core, computer vision is about teaching machines to "see" - not just to capture images, but to understand what's in those images and make decisions based on that understanding.</p>
+
+                <h4>The Computer Vision Pipeline</h4>
+                <p>Creating "digital doubles" follows a fundamental pipeline:</p>
+                <ol>
+                    <li><strong>CAPTURE</strong> - Acquiring visual data through cameras, scanners, or other sensors</li>
+                    <li><strong>PROCESS</strong> - Cleaning, filtering, and transforming the raw data</li>
+                    <li><strong>ANALYZE</strong> - Detecting patterns, features, and objects within the data</li>
+                    <li><strong>REPRESENT</strong> - Creating digital representations or taking actions based on the analysis</li>
+                </ol>
+
+                <p>This pipeline is how we transform physical entities into their digital counterparts. For example, when you use a face filter on social media, the system captures your face through the camera, processes the image, analyzes facial features, and then represents your "digital double" with the filter applied.</p>
+
+                <h4>Applications of Computer Vision</h4>
+                <p>Computer vision technology is ubiquitous in modern life:</p>
+
+                <h5>Commercial Applications:</h5>
+                <ul>
+                    <li>Product recognition and recommendation systems</li>
+                    <li>Quality control in manufacturing</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Self-driving_car" target="_blank">Autonomous vehicles</a> and driver assistance</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Augmented_reality" target="_blank">Augmented reality (AR)</a> applications</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Medical_imaging" target="_blank">Medical image analysis</a> and diagnosis</li>
+                </ul>
+
+                <h5>Surveillance and Security:</h5>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Facial_recognition_system" target="_blank">Facial recognition systems</a></li>
+                    <li>Behavior analysis and crowd monitoring</li>
+                    <li>Access control systems</li>
+                    <li>License plate recognition</li>
+                </ul>
+
+                <h5>Creative and Artistic Applications:</h5>
+                <ul>
+                    <li>Interactive art installations</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Neural_style_transfer" target="_blank">Style transfer</a> and image generation</li>
+                    <li><a href="https://en.wikipedia.org/wiki/Motion_capture" target="_blank">Motion capture</a> for animation</li>
+                    <li>Real-time video effects</li>
+                    <li>Performance art with live video</li>
+                </ul>
+
+                <h4>CV in Different Contexts</h4>
+                <p>It's important to recognize that the same computer vision technology can be used in vastly different contexts with different implications:</p>
+
+                <p><strong>Art:</strong> Artists use CV to critique surveillance, explore identity, create interactive experiences, and push boundaries of digital representation.</p>
+
+                <p><strong>Commerce:</strong> Companies use CV for user experience, product development, and market analytics.</p>
+
+                <p><strong>Surveillance:</strong> Governments and institutions use CV for security, tracking, and control.</p>
+
+                <p>In this course, we'll learn the technical skills while critically examining the ethical, social, and political implications of these technologies. Our goal is to be informed creators who understand both the possibilities and responsibilities that come with these powerful tools.</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="artists">Artists Working with Computer Vision</h3>
+
+                <p>Contemporary artists have been at the forefront of exploring, critiquing, and reimagining computer vision technology. Let's examine several key artists whose work engages deeply with CV and surveillance.</p>
+
+                <h4>Zach Blas</h4>
+                <p><strong>Website:</strong> <a href="http://www.zachblas.info/" target="_blank">zachblas.info</a><br>
+                <strong>Key Works:</strong> <a href="http://www.zachblas.info/works/face-cages/" target="_blank">Face Cages</a> (2013-2016), <a href="http://www.zachblas.info/works/facial-weaponization-suite/" target="_blank">Facial Weaponization Suite</a></p>
+
+                <p><a href="http://www.zachblas.info/" target="_blank">Zach Blas</a> creates provocative work that critiques biometric surveillance and facial recognition systems. His <em>Face Cages</em> series consists of 3D-printed masks created from aggregated facial data. These sculptural objects visualize the geometric frameworks that facial recognition systems impose on our faces.</p>
+
+                <p>His <em>Facial Weaponization Suite</em> goes further, creating collective masks that represent aggregated facial data from specific groups (e.g., queer people). These masks are designed to evade and confuse facial recognition systems - they represent "no one" individually but collectively embody communities that have historically been marginalized or surveilled.</p>
+
+                <p><strong>Key Questions Blas Raises:</strong></p>
+                <ul>
+                    <li>Who is visible to biometric systems, and who is invisible?</li>
+                    <li>How do surveillance technologies enforce normative categories of identity?</li>
+                    <li>Can we create collective strategies of resistance to facial recognition?</li>
+                </ul>
+
+                <h4>Adam Harvey</h4>
+                <p><strong>Website:</strong> <a href="https://ahprojects.com/" target="_blank">ahprojects.com</a><br>
+                <strong>Key Works:</strong> <a href="https://cvdazzle.com/" target="_blank">CV Dazzle</a>, <a href="https://ahprojects.com/hyperface/" target="_blank">HyperFace</a></p>
+
+                <p><a href="https://ahprojects.com/" target="_blank">Adam Harvey</a> creates "anti-surveillance" fashion and design that actively resists computer vision systems. His <a href="https://cvdazzle.com/" target="_blank">CV Dazzle</a> project developed makeup and hairstyling techniques specifically designed to fool facial detection algorithms. The designs are bold and striking, making visible the usually invisible act of being tracked by CV systems.</p>
+
+                <p><a href="https://ahprojects.com/hyperface/" target="_blank">HyperFace</a> takes a different approach: it's a textile pattern that contains multiple false faces. When CV systems scan the pattern, they become overwhelmed with face detections, making it harder to identify the real person wearing it.</p>
+
+                <p>Harvey's work is both functional (it actually works to evade detection) and aesthetic (it makes a bold visual statement). He demonstrates that understanding how CV systems work allows us to design counter-measures.</p>
+
+                <p><strong>Key Contributions:</strong></p>
+                <ul>
+                    <li>Making surveillance visible through design</li>
+                    <li>Practical strategies for privacy protection</li>
+                    <li>Aesthetic resistance to algorithmic seeing</li>
+                </ul>
+
+                <h4>Trevor Paglen</h4>
+                <p><strong>Website:</strong> <a href="http://www.paglen.studio/" target="_blank">paglen.studio</a><br>
+                <strong>Key Works:</strong> <a href="https://www.excavating.ai/" target="_blank">ImageNet Roulette</a> (with Kate Crawford), Training data investigations</p>
+
+                <p><a href="http://www.paglen.studio/" target="_blank">Trevor Paglen</a> investigates how machine learning and computer vision systems are trained. His collaboration with AI researcher <a href="https://www.katecrawford.net/" target="_blank">Kate Crawford</a>, <a href="https://www.excavating.ai/" target="_blank">ImageNet Roulette</a>, allowed people to upload photos and see how they were classified by an AI trained on the <a href="https://www.image-net.org/" target="_blank">ImageNet</a> dataset. The results were often shocking, revealing racist, sexist, and offensive categories embedded in the training data.</p>
+
+                <p>Paglen's work exposes a crucial truth about CV systems: they inherit the biases, assumptions, and prejudices present in their training data. By making visible the invisible infrastructures of AI, he helps us understand that these systems are not neutral or objective. Read more in the paper <a href="https://www.excavating.ai/" target="_blank">Excavating AI</a>.</p>
+
+                <p><strong>Key Insights:</strong></p>
+                <ul>
+                    <li>CV systems reflect the biases of their training data</li>
+                    <li>Classification systems encode social and political assumptions</li>
+                    <li>The "datasets" used to train AI are constructed by humans with specific worldviews</li>
+                </ul>
+
+                <h4>Kyle McDonald</h4>
+                <p><strong>Website:</strong> <a href="https://kylemcdonald.net/" target="_blank">kylemcdonald.net</a><br>
+                <strong>Key Works:</strong> <a href="https://kylemcdonald.net/exhausting-a-crowd/" target="_blank">Exhausting a Crowd</a>, <a href="https://kcimc.medium.com/working-with-faces-e63a86391a93" target="_blank">Facework</a></p>
+
+                <p><a href="https://kylemcdonald.net/" target="_blank">Kyle McDonald</a> creates installations that use real-time face tracking to explore themes of attention, surveillance, and public space. His project <a href="https://kylemcdonald.net/exhausting-a-crowd/" target="_blank">Exhausting a Crowd</a> tracked every face in a public square over time, creating an archive of expressions and movements.</p>
+
+                <p>McDonald often makes his code and tools <a href="https://github.com/kylemcdonald" target="_blank">open-source on GitHub</a>, contributing to the creative coding community. His work demonstrates how the same technologies used for surveillance can be used for artistic expression and social commentary.</p>
+
+                <p><strong>Artistic Approach:</strong></p>
+                <ul>
+                    <li>Open-source tools and methods</li>
+                    <li>Real-time face tracking and analysis</li>
+                    <li>Exploring attention and public space</li>
+                    <li>Making surveillance visible and tangible</li>
+                </ul>
+
+                <h4>Lauren McCarthy</h4>
+                <p><strong>Website:</strong> <a href="https://lauren-mccarthy.com/" target="_blank">lauren-mccarthy.com</a><br>
+                <strong>Key Work:</strong> <a href="https://lauren-mccarthy.com/LAUREN" target="_blank">LAUREN</a> (2017-2019)</p>
+
+                <p><a href="https://lauren-mccarthy.com/" target="_blank">Lauren McCarthy</a>'s <a href="https://lauren-mccarthy.com/LAUREN" target="_blank">LAUREN</a> is a performance piece where she literally became a human smart home. Participants invited "LAUREN" into their homes, and McCarthy (the artist) watched them through cameras, listened through microphones, and controlled their smart devices - mimicking what AI assistants like <a href="https://en.wikipedia.org/wiki/Amazon_Alexa" target="_blank">Alexa</a> do, but with a human behind the controls.</p>
+
+                <p>The project uses computer vision to monitor participants while making visceral the feeling of being constantly watched. By replacing the invisible AI with a visible human, McCarthy helps us understand what we're actually inviting into our homes.</p>
+
+                <p><strong>Key Questions:</strong></p>
+                <ul>
+                    <li>What do we trade for convenience?</li>
+                    <li>How does constant surveillance affect intimacy and privacy?</li>
+                    <li>What is the difference between human and algorithmic watching?</li>
+                </ul>
+
+                <h4>Rafael Lozano-Hemmer</h4>
+                <p><strong>Website:</strong> <a href="https://www.lozano-hemmer.com/" target="_blank">lozano-hemmer.com</a><br>
+                <strong>Key Work:</strong> <a href="https://www.lozano-hemmer.com/pulse_room.php" target="_blank">Pulse series</a></p>
+
+                <p><a href="https://www.lozano-hemmer.com/" target="_blank">Rafael Lozano-Hemmer</a> creates large-scale interactive installations that often use biometric data. His <a href="https://www.lozano-hemmer.com/pulse_room.php" target="_blank">Pulse series</a> captures participants' fingerprints and heart rates, creating beautiful visualizations of vital signs as light and sound.</p>
+
+                <p>While aesthetically stunning, these works also raise questions about biometric data collection, surveillance, and how our bodies are translated into digital information. They make visible and poetic the process of creating "digital doubles" from biological data.</p>
+
+                <p><strong>Artistic Themes:</strong></p>
+                <ul>
+                    <li>Biometric data as artistic material</li>
+                    <li>Participation and interactivity</li>
+                    <li>The body as data</li>
+                    <li>Beautiful but critical engagement with surveillance</li>
+                </ul>
+
+                <h4>Memo Akten</h4>
+                <p><strong>Website:</strong> <a href="http://www.memo.tv/" target="_blank">memo.tv</a><br>
+                <strong>Key Work:</strong> <a href="http://www.memo.tv/works/learning-to-see/" target="_blank">Learning to See</a></p>
+
+                <p><a href="http://www.memo.tv/" target="_blank">Memo Akten</a> works at the intersection of art, science, and technology, often using machine learning and computer vision. His <a href="http://www.memo.tv/works/learning-to-see/" target="_blank">Learning to See</a> project uses neural networks trained on art history to transform video in real-time, showing how machines learn to interpret and reimagine visual information.</p>
+
+                <p>While less explicitly critical than some other artists, Akten's work explores how machines learn to see and what happens when algorithms trained on human culture produce new visual interpretations.</p>
+
+                <p><strong>Focus Areas:</strong></p>
+                <ul>
+                    <li>Generative art using ML and CV</li>
+                    <li>Real-time style transfer</li>
+                    <li>How machines learn visual patterns</li>
+                    <li>AI as a creative tool</li>
+                </ul>
+
+                <h4>Why These Artists Matter</h4>
+                <p>These artists don't just use computer vision technology - they question it, critique it, and reimagine it. As we learn CV techniques in this course, we'll constantly ask:</p>
+                <ul>
+                    <li>Who has power in these systems?</li>
+                    <li>What biases are embedded in the technology?</li>
+                    <li>How does digital representation affect identity?</li>
+                    <li>What are the ethical implications of surveillance?</li>
+                    <li>How can we use these tools creatively and critically?</li>
+                </ul>
+
+                <p>Our goal is not just technical proficiency, but thoughtful, informed practice that considers the broader implications of the tools we're using.</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="image-fundamentals">Digital Images Fundamentals</h3>
+
+                <p>Before we can process images with computer vision, we need to understand what digital images actually are. Let's break down the fundamental concepts.</p>
+
+                <h4>What is a Digital Image?</h4>
+                <p>A <a href="https://en.wikipedia.org/wiki/Digital_image" target="_blank">digital image</a> is a representation of a visual scene stored as data in a computer. Unlike traditional photographs that use chemical processes to capture light on film, digital images capture light using sensors and store the information as numbers.</p>
+
+                <p>At its most basic level:</p>
+                <ul>
+                    <li>A digital image is a <strong>grid of <a href="https://en.wikipedia.org/wiki/Pixel" target="_blank">pixels</a></strong> (picture elements)</li>
+                    <li>Each pixel stores information about color and brightness</li>
+                    <li>The entire image is just an <a href="https://en.wikipedia.org/wiki/Array_data_structure" target="_blank">array</a> of numbers that computers can process</li>
+                </ul>
+
+                <p>This is crucial to understand: <strong>to a computer, images are not pictures - they are data structures containing numbers.</strong> This is what makes computer vision possible: we can perform mathematical operations on these numbers to analyze, transform, and understand images.</p>
+
+                <h4>Pixels and Resolution</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Pixel" target="_blank">Pixel</a> (picture element):</strong> The smallest unit of a digital image. Each pixel represents one point of color in the image.</p>
+
+                <p><strong><a href="https://en.wikipedia.org/wiki/Image_resolution" target="_blank">Resolution</a>:</strong> The number of pixels in an image, typically expressed as width × height. Higher resolution means more pixels and thus more detail.</p>
+
+                <p>Common resolutions:</p>
+                <ul>
+                    <li>HD (1080p): 1920 × 1080 = 2,073,600 pixels (approximately 2.1 megapixels)</li>
+                    <li><a href="https://en.wikipedia.org/wiki/4K_resolution" target="_blank">4K</a>: 3840 × 2160 = 8,294,400 pixels (approximately 8.3 megapixels)</li>
+                    <li>Typical phone camera: 12+ megapixels</li>
+                </ul>
+
+                <p>When you zoom into a digital image far enough, you'll see the individual pixel squares. This pixelation is a fundamental characteristic of digital images.</p>
+
+                <h4>Color Spaces</h4>
+                <p>A <strong><a href="https://en.wikipedia.org/wiki/Color_space" target="_blank">color space</a></strong> is a specific organization of colors - a way to represent color information numerically.</p>
+
+                <h5>Grayscale</h5>
+                <p><a href="https://en.wikipedia.org/wiki/Grayscale" target="_blank">Grayscale</a> images contain only brightness information, no color:</p>
+                <ul>
+                    <li>Single channel with values from 0-255</li>
+                    <li>0 = black, 255 = white, values in between = shades of gray</li>
+                    <li>Much simpler to process than color images</li>
+                    <li>Often used in CV algorithms that don't need color information</li>
+                </ul>
+
+                <h5>RGB (Red, Green, Blue)</h5>
+                <p><a href="https://en.wikipedia.org/wiki/RGB_color_model" target="_blank">RGB</a> is the most common color space for digital images:</p>
+                <ul>
+                    <li>Each pixel has three values: Red, Green, and Blue</li>
+                    <li>Each channel ranges from 0 to 255 (8-bit)</li>
+                    <li>Colors are created by mixing these three primary colors</li>
+                    <li>256 × 256 × 256 = 16,777,216 possible colors</li>
+                </ul>
+
+                <p>Examples:</p>
+                <ul>
+                    <li><code>(255, 0, 0)</code> = pure red</li>
+                    <li><code>(0, 255, 0)</code> = pure green</li>
+                    <li><code>(0, 0, 255)</code> = pure blue</li>
+                    <li><code>(255, 255, 0)</code> = yellow (red + green)</li>
+                    <li><code>(255, 255, 255)</code> = white</li>
+                    <li><code>(0, 0, 0)</code> = black</li>
+                </ul>
+
+                <h5>BGR (Blue, Green, Red)</h5>
+                <p><a href="https://opencv.org/" target="_blank">OpenCV</a> uses BGR instead of RGB by default. This is for historical reasons related to early video camera technology. The order is simply reversed:</p>
+                <ul>
+                    <li>First channel: Blue</li>
+                    <li>Second channel: Green</li>
+                    <li>Third channel: Red</li>
+                </ul>
+
+                <p><strong>Important:</strong> When you load an image with OpenCV and display it using other libraries (like <a href="https://matplotlib.org/" target="_blank">matplotlib</a>), you may need to convert from BGR to RGB, or the colors will look wrong!</p>
+
+                <h4>Data Types and Bit Depth</h4>
+                <p>Images can be stored with different numerical precisions:</p>
+
+                <p><strong>uint8 (8-bit unsigned integer):</strong></p>
+                <ul>
+                    <li>Range: 0-255</li>
+                    <li>Most common for images</li>
+                    <li>Each channel takes 1 byte of memory</li>
+                    <li>Standard for <a href="https://en.wikipedia.org/wiki/JPEG" target="_blank">JPG</a>, <a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics" target="_blank">PNG</a> files</li>
+                </ul>
+
+                <p><strong>uint16 (16-bit unsigned integer):</strong></p>
+                <ul>
+                    <li>Range: 0-65,535</li>
+                    <li>Used in scientific imaging, <a href="https://en.wikipedia.org/wiki/Raw_image_format" target="_blank">RAW photos</a></li>
+                    <li>More precision for processing</li>
+                    <li>Each channel takes 2 bytes</li>
+                </ul>
+
+                <p><strong>float32 (32-bit floating point):</strong></p>
+                <ul>
+                    <li>Range: typically 0.0-1.0 or 0.0-255.0</li>
+                    <li>Used during image processing</li>
+                    <li>Required by many ML models</li>
+                    <li>Each channel takes 4 bytes</li>
+                </ul>
+
+                <p>You'll often need to convert between these types during processing:</p>
+                <pre><code># Convert uint8 to float32 (0-255 range becomes 0.0-1.0)
+img_float = img.astype(np.float32) / 255.0
+
+# Convert back to uint8
+img_uint8 = (img_float * 255).astype(np.uint8)</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="opencv-numpy">OpenCV and NumPy Basics</h3>
+
+                <h4>What is OpenCV?</h4>
+                <p><strong><a href="https://opencv.org/" target="_blank">OpenCV</a></strong> (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library. It's the industry-standard toolkit for computer vision applications.</p>
+
+                <p>Key facts about OpenCV:</p>
+                <ul>
+                    <li>Originally developed by <a href="https://www.intel.com/" target="_blank">Intel</a> in 1999</li>
+                    <li>Over 2,500 optimized algorithms</li>
+                    <li>Used in academia, industry, and art</li>
+                    <li>Cross-platform (Windows, Linux, macOS, Android, iOS)</li>
+                    <li>Interfaces for Python, C++, Java, and more</li>
+                    <li>Completely free and <a href="https://github.com/opencv/opencv" target="_blank">open-source</a></li>
+                </ul>
+
+                <p>OpenCV provides tools for:</p>
+                <ul>
+                    <li>Reading, writing, and displaying images and videos</li>
+                    <li>Image processing and filtering</li>
+                    <li>Object detection and tracking</li>
+                    <li>Facial recognition</li>
+                    <li>Machine learning integration</li>
+                    <li>3D reconstruction</li>
+                    <li>And much more...</li>
+                </ul>
+
+                <p>Learn more in the <a href="https://docs.opencv.org/" target="_blank">OpenCV documentation</a>.</p>
+
+                <h4>Why NumPy?</h4>
+                <p><strong><a href="https://numpy.org/" target="_blank">NumPy</a></strong> (Numerical Python) is the fundamental package for scientific computing in Python. It provides:</p>
+                <ul>
+                    <li>Efficient multi-dimensional array objects</li>
+                    <li>Fast mathematical operations</li>
+                </ul>
+
+                <p>In OpenCV, all images are NumPy arrays. This means:</p>
+                <ul>
+                    <li>You can use NumPy operations directly on images</li>
+                    <li>Array manipulations translate to image manipulations</li>
+                    <li>Mathematical operations are very fast (written in C)</li>
+                </ul>
+
+                <p>Learn more in the <a href="https://numpy.org/doc/stable/" target="_blank">NumPy documentation</a>.</p>
+
+                <h4>Basic Code Structure</h4>
+                <pre><code>import cv2
+import numpy as np
+
+def main():
+    # Add code here
+    pass
+
+if __name__ == "__main__":
+    main()</code></pre>
+
+                <p>You'll be writing your code inside the <code>main()</code> function so that your code will run when the file is executed.</p>
+
+                <h4>Images as NumPy Arrays</h4>
+                <p>In Python with OpenCV, images are represented as <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html" target="_blank">NumPy arrays</a>. This is the key to understanding image processing programmatically.</p>
+
+                <p><strong>Grayscale Image:</strong></p>
+                <ul>
+                    <li>2D array with shape: <code>(height, width)</code></li>
+                    <li>Example: a 100×100 grayscale image has shape <code>(100, 100)</code></li>
+                </ul>
+
+                <p><strong>Color Image:</strong></p>
+                <ul>
+                    <li>3D array with shape: <code>(height, width, channels)</code></li>
+                    <li>Example: a 100×100 color image has shape <code>(100, 100, 3)</code></li>
+                    <li>The third dimension contains the color channel values (BGR in OpenCV)</li>
+                </ul>
+
+                <h4>Accessing Image Data</h4>
+                <p>Understanding array indexing is crucial for image manipulation:</p>
+
+                <pre><code># Load an image
+img = cv2.imread('photo.jpg')
+
+# Get image dimensions
+height, width, channels = img.shape
+
+# Access a single pixel (y, x) - note: y comes first!
+pixel = img[100, 200]  # Pixel at row 100, column 200
+
+# Access specific color channel of a pixel
+blue_value = img[100, 200, 0]   # Blue channel
+green_value = img[100, 200, 1]  # Green channel
+red_value = img[100, 200, 2]    # Red channel
+
+# Get entire color channel
+blue_channel = img[:, :, 0]  # All pixels, blue channel only</code></pre>
+
+                <p><strong>Important Note:</strong> Image coordinates use <code>(row, column)</code> or <code>(y, x)</code> indexing, which is the opposite of typical <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system" target="_blank">Cartesian coordinates</a> <code>(x, y)</code>. This can be confusing at first!</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="processing-techniques">Basic Image Processing Techniques</h3>
+
+                <p>Now that we understand what images are and how to work with them, let's explore some fundamental processing techniques. For complete, working code examples, download the Week 1 code examples package above.</p>
+
+                <h4>Loading and Displaying Images</h4>
+                <pre><code>import cv2
+
+# Load an image
+img = cv2.imread('photo.jpg')
+
+# Check if image was loaded successfully
+if img is None:
+    print("Error: Could not load image")
+    exit()
+
+# Display the image
+cv2.imshow('Original Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# Save a copy
+cv2.imwrite('output.jpg', img)</code></pre>
+
+                <h4>Color Space Conversions</h4>
+                <pre><code># Convert to grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Convert to RGB (for matplotlib display)
+rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+# Convert to HSV (useful for color-based detection)
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)</code></pre>
+
+                <h4>Resizing and Cropping</h4>
+                <pre><code># Resize to specific size
+resized = cv2.resize(img, (400, 300))
+
+# Resize by percentage (50% of original)
+resized = cv2.resize(img, None, fx=0.5, fy=0.5)
+
+# Crop image (center crop example)
+height, width = img.shape[:2]
+center_x, center_y = width // 2, height // 2
+crop_width, crop_height = 300, 300
+x1 = center_x - crop_width // 2
+y1 = center_y - crop_height // 2
+x2 = x1 + crop_width
+y2 = y1 + crop_height
+cropped = img[y1:y2, x1:x2]</code></pre>
+
+                <h4>Blurring and Smoothing</h4>
+                <pre><code># Gaussian Blur (most common)
+gaussian = cv2.GaussianBlur(img, (5, 5), 0)
+
+# Median Blur (good for salt-and-pepper noise)
+median = cv2.medianBlur(img, 5)
+
+# Bilateral Filter (preserves edges while blurring)
+bilateral = cv2.bilateralFilter(img, 9, 75, 75)</code></pre>
+
+                <p><strong>When to use which blur:</strong></p>
+                <ul>
+                    <li><strong>Gaussian:</strong> General purpose, reduces noise</li>
+                    <li><strong>Median:</strong> Removes salt-and-pepper noise</li>
+                    <li><strong>Bilateral:</strong> Blur while keeping edges sharp</li>
+                </ul>
+
+                <h4>Brightness and Contrast Adjustment</h4>
+                <pre><code># Increase brightness
+brighter = cv2.add(img, 50)
+
+# Adjust contrast and brightness
+# alpha = contrast, beta = brightness
+adjusted = cv2.convertScaleAbs(img, alpha=1.3, beta=30)</code></pre>
+
+                <h4>Thresholding</h4>
+                <pre><code>gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Simple binary threshold
+ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+
+# Adaptive threshold (better for varying lighting)
+adaptive = cv2.adaptiveThreshold(gray, 255, 
+                                  cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                  cv2.THRESH_BINARY, 11, 2)
+
+# Otsu's method (automatic threshold value)
+ret, otsu = cv2.threshold(gray, 0, 255, 
+                          cv2.THRESH_BINARY + cv2.THRESH_OTSU)</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="assignments">Week 1 Assignments</h3>
+
+                <h4>Reading Assignment: "Art in a Time of Surveillance"</h4>
+                <p><strong>Article:</strong> <a href="https://theintercept.com/2014/11/13/art-surveillance-explored-artists/" target="_blank">"Art in a Time of Surveillance"</a> - The Intercept</p>
+
+                <p><strong>Reading Response (500 words max):</strong></p>
+                <p>Please read the article and write a thoughtful response addressing the following questions:</p>
+                <ol>
+                    <li>How do the artists discussed in the article engage with surveillance technology? What strategies do they use?</li>
+                    <li>Which artwork or artist resonated most with you, and why?</li>
+                    <li>How does this reading connect to computer vision as a technology?</li>
+                    <li>What questions or concerns does the article raise about "digital doubles" and digital representation?</li>
+                    <li>Can you think of other examples of art engaging with surveillance or computer vision?</li>
+                </ol>
+
+                <p><strong>Due:</strong> Beginning of next class (October 31, 2025)</p>
+                <p><strong>Submission:</strong> Add your response as a Google Doc to the <a href="https://drive.google.com/drive/u/1/folders/1v3jaBs2BgQy1Lug-Dbh9S0RvMpiBVqPb" target="_blank">Week 1 Reading Responses Google Drive folder</a>.</p>
+
+                <div class="section-divider"></div>
+
+                <h4>Lab Assignment 1: Basic Image Manipulation</h4>
+                <p>Create a Python program that demonstrates your understanding of basic image processing techniques using OpenCV.</p>
+
+                <p><strong>Requirements:</strong></p>
+                <p>Your program must:</p>
+                <ol>
+                    <li>Load an image from a file</li>
+                    <li>Apply at least <strong>three different transformations or filters</strong> from the techniques covered in class:
+                        <ul>
+                            <li>Color space conversion (e.g., grayscale, RGB/BGR)</li>
+                            <li>Resizing or cropping</li>
+                            <li>Rotation or flipping</li>
+                            <li>Blurring or smoothing</li>
+                            <li>Brightness/contrast adjustment</li>
+                            <li>Thresholding</li>
+                            <li>Any other technique covered</li>
+                        </ul>
+                    </li>
+                    <li>Save the processed images to file(s)</li>
+                    <li>Include clear comments explaining what each section of code does</li>
+                </ol>
+
+                <p><strong>Creative Component:</strong></p>
+                <p>Beyond the technical requirements, try to create something visually interesting or meaningful. Consider:</p>
+                <ul>
+                    <li>How do different filters change the feeling or meaning of an image?</li>
+                    <li>Can you create an artistic effect by combining multiple operations?</li>
+                    <li>Can you manipulate an image to convey a particular idea or emotion?</li>
+                </ul>
+
+                <p><strong>Deliverables:</strong></p>
+                <p>Inside the <a href="https://drive.google.com/drive/u/1/folders/1aG02fCyPw8SIoo8D6UDmOPrIBPQc7RC1" target="_blank">Week 1 Assignments Google Drive folder</a>, create a folder containing:</p>
+                <ol>
+                    <li><strong>Python script</strong> (.py file) with your code</li>
+                    <li><strong>Original image(s)</strong> you used as input</li>
+                    <li><strong>Output images</strong> generated by your program</li>
+                    <li><strong>Brief written reflection</strong> (1 paragraph, no more than 300 words) addressing:
+                        <ul>
+                            <li>What did you learn from this assignment?</li>
+                            <li>What was challenging or surprising?</li>
+                            <li>What creative choices did you make and why?</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Due:</strong> Beginning of next class (October 31, 2025)</p>
+
+                <p><strong>Tips:</strong></p>
+                <ul>
+                    <li>Start simple and test each operation individually</li>
+                    <li>Save intermediate results to debug your process</li>
+                    <li>Use meaningful variable names</li>
+                    <li>Comment your code as you write it</li>
+                    <li>If you use AI assistance, document it in your code comments</li>
+                    <li>Don't be afraid to experiment - unexpected results can be the most interesting!</li>
+                </ul>
+
+                <div class="section-divider"></div>
+
+                <h3 id="additional-resources">Additional Resources</h3>
+
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="https://docs.opencv.org/" target="_blank">OpenCV Documentation</a> - Complete OpenCV reference</li>
+                    <li><a href="https://docs.opencv.org/master/d6/d00/tutorial_py_root.html" target="_blank">OpenCV Python Tutorials</a> - Official Python tutorials</li>
+                    <li><a href="https://numpy.org/doc/" target="_blank">NumPy Documentation</a> - NumPy reference guide</li>
+                    <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a> - Official Python docs</li>
+                </ul>
+
+                <h4>Course Materials</h4>
+                <ul>
+                    <li><strong>Course Google Drive:</strong> <a href="https://drive.google.com/drive/folders/1QBC_GxFM-6KoTL7bqZjC76_r6MVasSG8" target="_blank">Link to course materials</a></li>
+                    <li><strong>Code Examples:</strong> Available in download above</li>
+                </ul>
+
+                <h4>Getting Help</h4>
+                <ul>
+                    <li><strong>Office Hours:</strong> By appointment - email <a href="mailto:jiwon.shin@nyu.edu">jiwon.shin@nyu.edu</a></li>
+                    <li><strong>Technical Issues:</strong> <a href="https://nyu.edu/it/servicedesk" target="_blank">IT Service Desk</a></li>
+                    <li><strong>NYU Libraries:</strong> <a href="https://library.nyu.edu/" target="_blank">Dibner Library</a></li>
+                    <li><strong>Writing Support:</strong> <a href="https://nyu.mywconline.com/" target="_blank">NYU Writing Center</a></li>
+                </ul>
+
+                <p style="margin-top: 3rem; text-align: center; color: #999; font-size: 0.9rem;">
+                    <em>Last updated: October 24, 2025</em>
+                </p>
+            </div>
+        </section>
+
+        <div class="text-center mt-2">
+            <a href="weeks.html" class="btn">← Back to All Weeks</a>
+            <a href="week2.html" class="btn">Next Week →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Digital Doubles - DM-GY 9201 B</p>
+        <p>NYU Tandon School of Engineering | Integrated Design & Media</p>
+        <p>Instructor: Jiwon Shin</p>
+    </footer>
+</body>
+</html>
