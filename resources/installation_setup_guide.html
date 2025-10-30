@@ -247,7 +247,16 @@ sudo apt install python3 python3-pip</code></pre>
             <h3>Step 3: Install Required Packages</h3>
 
             <p><strong>Windows:</strong></p>
+            <p>Before you install required packages for Windows, download <a href="https://visualstudio.microsoft.com/" target="_blank">Visual Studio</a>.</p>
+            <img width="100%" src="visual-studio-download.png">
+            <p>Launch Visual Studio Installer and install Desktop development with C++.</p>
+            <img width="100%" src="visual-studio.png">
+            <p>Quit and relaunch cmd or powershell and run:</p>
             <pre><code>pip install opencv-python numpy matplotlib</code></pre>
+            <p>To verify, run:</p>
+            <pre><code>pip list</code></pre>
+            <p>If everything is installed properly, you should see:</p>
+            <img width="100%" src="pip-terminal-outputs.png">
 
             <p><strong>macOS/Linux:</strong></p>
             <pre><code>pip3 install opencv-python numpy matplotlib</code></pre>
