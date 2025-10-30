@@ -112,9 +112,10 @@
         <section class="content-section">
             <h2>Overview</h2>
             <p>
-                This week introduces the fundamentals of digital image processing and sets up our development 
-                environment. We'll explore how images are represented as data, learn the basics of Python and 
-                OpenCV, and begin manipulating images programmatically.
+                This week introduced the conceptual foundations of computer vision and digital image processing. 
+                We explored how images are represented as data and set up our development environment. Due to 
+                extended time on installation and troubleshooting, we covered conceptual foundations but did not 
+                complete hands-on coding exercises. <strong>All practical image processing will be covered in Week 2.</strong>
             </p>
             
             <div class="info-box" style="margin-top: 1.5rem; background-color: #fff3cd; border-left: 4px solid #ffc107;">
@@ -128,14 +129,25 @@
 
         <section class="content-section">
             <h2>Topics Covered</h2>
+            <p><strong>What We Actually Covered in Week 1:</strong></p>
             <ul>
-                <li>Course overview and expectations</li>
-                <li>Setting up Python and OpenCV development environment (<a href="resources/installation_setup_guide.html">Installation Guide</a>)</li>
-                <li>Understanding digital images as NumPy arrays</li>
-                <li>Basic image manipulation: reading, displaying, and saving images</li>
-                <li>Color spaces and pixel manipulation</li>
-                <li>Introduction to image transformations</li>
-                <li>Basic filters and effects</li>
+                <li>✅ Course overview and expectations</li>
+                <li>✅ What is Computer Vision?</li>
+                <li>✅ Artists working with CV (Zach Blas, Adam Harvey, Trevor Paglen, Kyle McDonald, Lauren McCarthy, Rafael Lozano-Hemmer, Memo Akten)</li>
+                <li>✅ Setting up Python and OpenCV development environment (<a href="resources/installation_setup_guide.html">Installation Guide</a>)</li>
+                <li>✅ Understanding digital images as NumPy arrays (conceptual)</li>
+                <li>✅ Color spaces (RGB, BGR, Grayscale, HSV) - theory</li>
+            </ul>
+            <p><strong>What Will Be Covered in Week 2:</strong></p>
+            <ul>
+                <li>📅 Loading, displaying, and saving images (hands-on)</li>
+                <li>📅 Image transformations (resize, rotate, crop, flip)</li>
+                <li>📅 Basic filters and blurring</li>
+                <li>📅 Brightness/contrast adjustment</li>
+                <li>📅 Thresholding</li>
+                <li>📅 Pixel manipulation</li>
+                <li>📅 Advanced filters and convolution</li>
+                <li>📅 Edge detection</li>
             </ul>
         </section>
 
@@ -157,19 +169,19 @@
             
             <div class="info-box" style="margin-top: 2rem;">
                 <h3>📁 What's Included in the Download</h3>
-                <p style="margin-bottom: 1rem;">The zip file contains the following organized code examples:</p>
+                <p style="margin-bottom: 1rem;">The zip file contains organized code examples. <strong>Note: Examples 02-11 will be covered in Week 2.</strong></p>
                 <ul style="margin-top: 1rem;">
-                    <li><strong>01_setup_verification/</strong> - Verify your installation</li>
-                    <li><strong>02_image_loading_basics/</strong> - Load, display, and save images</li>
-                    <li><strong>03_color_space_conversions/</strong> - Work with different color spaces</li>
-                    <li><strong>04_image_transformations/</strong> - Resize, crop, rotate images</li>
-                    <li><strong>05_basic_filters/</strong> - Apply blur and smoothing filters</li>
-                    <li><strong>06_brightness_contrast/</strong> - Adjust image intensity</li>
-                    <li><strong>07_thresholding_demo/</strong> - Convert to binary images</li>
-                    <li><strong>08_pixel_manipulation/</strong> - Direct pixel access</li>
-                    <li><strong>09_image_compositing/</strong> - Layer and combine images</li>
-                    <li><strong>10_complete_image_processor/</strong> - ⭐ Complete example combining all techniques</li>
-                    <li><strong>11_interactive_demo/</strong> - 🎁 Interactive controls (bonus)</li>
+                    <li><strong>01_setup_verification/</strong> - ✅ Verify your installation (Week 1)</li>
+                    <li><strong>02_image_loading_basics/</strong> - 📅 Load, display, and save images (Week 2)</li>
+                    <li><strong>03_color_space_conversions/</strong> - 📅 Work with different color spaces (Week 2)</li>
+                    <li><strong>04_image_transformations/</strong> - 📅 Resize, crop, rotate images (Week 2)</li>
+                    <li><strong>05_basic_filters/</strong> - 📅 Apply blur and smoothing filters (Week 2)</li>
+                    <li><strong>06_brightness_contrast/</strong> - 📅 Adjust image intensity (Week 2)</li>
+                    <li><strong>07_thresholding_demo/</strong> - 📅 Convert to binary images (Week 2)</li>
+                    <li><strong>08_pixel_manipulation/</strong> - 📅 Direct pixel access (Week 2)</li>
+                    <li><strong>09_image_compositing/</strong> - 📅 Layer and combine images (Week 2)</li>
+                    <li><strong>10_complete_image_processor/</strong> - 📅 Complete example combining all techniques (Week 2)</li>
+                    <li><strong>11_interactive_demo/</strong> - 📅 Interactive controls (Week 2)</li>
                     <li><strong>Resources/</strong> - Sample images (mountain.jpg, ocean.jpg, pinkflower.jpg, whiteflower.jpg)</li>
                     <li><strong>README.md</strong> - Detailed documentation with running instructions</li>
                 </ul>
@@ -189,7 +201,7 @@
                         <li><a href="#artists">Artists Working with Computer Vision</a></li>
                         <li><a href="#image-fundamentals">Digital Images Fundamentals</a></li>
                         <li><a href="#opencv-numpy">OpenCV and NumPy Basics</a></li>
-                        <li><a href="#processing-techniques">Basic Image Processing Techniques</a></li>
+                        <li><a href="#week2-preview">What's Coming in Week 2</a></li>
                         <li><a href="#assignments">Week 1 Assignments</a></li>
                         <li><a href="#additional-resources">Additional Resources</a></li>
                     </ol>
@@ -636,9 +648,33 @@ blue_channel = img[:, :, 0]  # All pixels, blue channel only</code></pre>
 
                 <div class="section-divider"></div>
 
-                <h3 id="processing-techniques">Basic Image Processing Techniques</h3>
+                <h3 id="week2-preview">What's Coming in Week 2</h3>
 
-                <p>Now that we understand what images are and how to work with them, let's explore some fundamental processing techniques. For complete, working code examples, download the Week 1 code examples package above.</p>
+                <p><strong>Important:</strong> Due to extended time on environment setup, we did not cover hands-on image processing in Week 1. <strong>All practical coding will be covered in Week 2</strong>, which will now include both basic and advanced image processing techniques.</p>
+
+                <p><strong>Week 2 will cover:</strong></p>
+                <ul>
+                    <li>Loading, displaying, and saving images (hands-on)</li>
+                    <li>Color space conversions in practice</li>
+                    <li>Image transformations (resize, rotate, flip, crop)</li>
+                    <li>Basic filters and blurring</li>
+                    <li>Brightness and contrast adjustment</li>
+                    <li>Thresholding techniques</li>
+                    <li>Pixel-level manipulation</li>
+                    <li>Image compositing</li>
+                    <li>Understanding convolution and kernels</li>
+                    <li>Advanced blur techniques</li>
+                    <li>Sharpening filters</li>
+                    <li>Edge detection (Sobel, Laplacian, Canny)</li>
+                </ul>
+
+                <p>The code examples (02-11) in the download package above preview what we'll be covering. Feel free to explore them before class!</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="processing-techniques">Preview: Basic Image Processing Techniques</h3>
+
+                <p><em>Note: These techniques will be covered hands-on in Week 2. This section provides a preview of the concepts.</em></p>
 
                 <h4>Loading and Displaying Images</h4>
                 <pre><code>import cv2
@@ -743,12 +779,14 @@ ret, otsu = cv2.threshold(gray, 0, 255,
                     <li>Can you think of other examples of art engaging with surveillance or computer vision?</li>
                 </ol>
 
-                <p><strong>Due:</strong> Beginning of next class (October 30, 2025)</p>
+                <p><strong>Due:</strong> <s>Beginning of next class (October 30, 2025)</s> <strong>Postponed to Week 2 (November 6, 2025)</strong></p>
                 <p><strong>Submission:</strong> Add your response as a Google Doc to the <a href="https://drive.google.com/drive/u/1/folders/1v3jaBs2BgQy1Lug-Dbh9S0RvMpiBVqPb" target="_blank">Week 1 Reading Responses Google Drive folder</a>.</p>
 
                 <div class="section-divider"></div>
 
                 <h4>Lab Assignment 1: Basic Image Manipulation</h4>
+                <p><strong>Update:</strong> Lab 1 has been postponed to Week 2 to allow for proper hands-on instruction. There is <strong>no lab assignment due</strong> for Week 1.</p>
+                <p><em>Original assignment description (for reference only - will be assigned in Week 2):</em></p>
                 <p>Create a Python program that demonstrates your understanding of basic image processing techniques using OpenCV.</p>
 
                 <p><strong>Requirements:</strong></p>
@@ -825,14 +863,14 @@ ret, otsu = cv2.threshold(gray, 0, 255,
 
                 <h4>Getting Help</h4>
                 <ul>
-                    <li><strong>Office Hours:</strong> By appointment - email <a href="mailto:jiwon.shin@nyu.edu">jiwon.shin@nyu.edu</a></li>
+                    <li><strong>Office Hours:</strong> Thursdays 5:00 PM - 6:00 PM, or by appointment via Zoom (email <a href="mailto:jiwon.shin@nyu.edu">jiwon.shin@nyu.edu</a>)</li>
                     <li><strong>Technical Issues:</strong> <a href="https://nyu.edu/it/servicedesk" target="_blank">IT Service Desk</a></li>
                     <li><strong>NYU Libraries:</strong> <a href="https://library.nyu.edu/" target="_blank">Dibner Library</a></li>
                     <li><strong>Writing Support:</strong> <a href="https://nyu.mywconline.com/" target="_blank">NYU Writing Center</a></li>
                 </ul>
 
                 <p style="margin-top: 3rem; text-align: center; color: #999; font-size: 0.9rem;">
-                    <em>Last updated: October 23, 2025</em>
+                    <em>Last updated: October 30, 2025 - Reflects what was actually covered in Week 1</em>
                 </p>
             </div>
         </section>

@@ -3,14 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 2: Advanced Image Processing & Video Fundamentals - Digital Doubles</title>
+    <title>Week 2: Complete Image Processing - Digital Doubles</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lecture-notes {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .lecture-notes h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .lecture-notes h4 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .lecture-notes h5 {
+            color: var(--text-color);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .lecture-notes p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .lecture-notes ul, .lecture-notes ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .lecture-notes li {
+            margin-bottom: 0.5rem;
+        }
+        .lecture-notes code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .lecture-notes pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .lecture-notes pre code {
+            background: none;
+            padding: 0;
+        }
+        .lecture-notes a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lecture-notes a:hover {
+            text-decoration: underline;
+        }
+        .lecture-notes .toc {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+        .lecture-notes .toc ol {
+            margin-left: 1.5rem;
+        }
+        .lecture-notes blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #666;
+        }
+        .section-divider {
+            border-top: 2px solid var(--border-color);
+            margin: 3rem 0;
+        }
+        .code-example-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .code-example-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .code-example-card p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <h1>Week 2: Advanced Image Processing & Video Fundamentals</h1>
-            <p class="subtitle">October 31, 2025</p>
+            <h1>Week 2: Complete Image Processing (Basic + Advanced)</h1>
+            <p class="subtitle">October 30, 2025</p>
         </div>
     </header>
 
@@ -25,86 +127,611 @@
     <div class="container">
         <section class="content-section">
             <h2>Overview</h2>
-            <p>
-                This week builds on Week 1's foundations, diving deeper into image processing techniques and introducing video processing fundamentals. We'll explore convolution operations, create custom filters, and begin working with video streams.
+            <div class="info-box" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <p style="margin: 0;"><strong>⚠️ Important Schedule Update:</strong> Due to extended time on environment setup in Week 1, this week now covers <strong>all image processing</strong> (both basic and advanced techniques). Video processing has been moved to Week 3.</p>
+            </div>
+            <p style="margin-top: 1.5rem;">
+                This week covers comprehensive image processing, starting with hands-on basics (loading, displaying, transformations, basic filters) and progressing to advanced techniques (convolution, edge detection, sharpening). We'll also discuss the surveillance reading and its connections to the computer vision techniques we're learning.
             </p>
         </section>
 
         <section class="content-section">
             <h2>Topics Covered</h2>
-            <ul>
-                <li>Filtering techniques and convolution operations</li>
-                <li>Custom kernels and filters</li>
-                <li>Video processing fundamentals</li>
-                <li>Motion detection algorithms</li>
-                <li>Frame differencing techniques</li>
-                <li>Working with video files and streams</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2>📚 Lecture Materials</h2>
-            <div class="week-card">
-                <h3>Lecture Notes & Slides</h3>
-                <p>Materials will be posted after class on October 31, 2025.</p>
-                <p style="color: #999; margin-top: 1rem;">Check back after class for lecture notes, slides, and additional resources.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--primary-color); font-size: 1.3rem;">Part 1: Basic Image Processing</h3>
+                    <ul>
+                        <li>Loading, displaying, and saving images</li>
+                        <li>Color space conversions (BGR, RGB, Grayscale, HSV)</li>
+                        <li>Image transformations (resize, rotate, flip, crop)</li>
+                        <li>Basic blur filters (Gaussian, Median, Bilateral)</li>
+                        <li>Brightness and contrast adjustment</li>
+                        <li>Thresholding techniques (binary, Otsu's, adaptive)</li>
+                        <li>Pixel manipulation and channel operations</li>
+                        <li>Image compositing and blending</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: var(--secondary-color); font-size: 1.3rem;">Part 2: Advanced Image Processing</h3>
+                    <ul>
+                        <li>Understanding convolution and kernels</li>
+                        <li>Creating custom filter kernels</li>
+                        <li>Advanced blur comparison and techniques</li>
+                        <li>Sharpening filters and unsharp mask</li>
+                        <li>Edge detection algorithms:
+                            <ul style="margin-left: 1.5rem;">
+                                <li>Sobel operator</li>
+                                <li>Laplacian</li>
+                                <li>Canny edge detection</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="content-section">
             <h2>💻 Code Examples</h2>
-            <div class="week-card">
-                <h3>Week 2 Code Examples</h3>
-                <p>Code examples and demonstrations will be posted here after class.</p>
-                <p style="color: #999; margin-top: 1rem;">All code will be available in the Week2 folder with detailed READMEs.</p>
+            
+            <div class="week-card" style="background-color: #f0f7ff; border-left: 4px solid var(--primary-color);">
+                <h3>📦 Week 2 Code Examples: 15 Comprehensive Examples</h3>
+                <p>From basic image operations to advanced edge detection and creative effects!</p>
+                <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+                    <strong>Note:</strong> These are the same code examples from Week 1 download (examples 02-15), now covered in Week 2.
+                </p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://drive.google.com/drive/u/1/folders/1QBC_GxFM-6KoTL7bqZjC76_r6MVasSG8" class="btn" target="_blank" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        📂 Access via Google Drive
+                    </a>
+                </p>
+            </div>
+            
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>📁 What's Included: 15 Examples</h3>
+                
+                <div class="code-example-card">
+                    <h4>Basic Image Processing (Examples 01-10)</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>01_setup_verification/</strong> - Environment check</li>
+                        <li><strong>02_image_loading_basics/</strong> - Load, display, save images</li>
+                        <li><strong>03_color_space_conversions/</strong> - RGB, BGR, Grayscale, HSV</li>
+                        <li><strong>04_image_transformations/</strong> - Resize, rotate, flip, crop</li>
+                        <li><strong>05_basic_filters/</strong> - Gaussian, median, bilateral blur</li>
+                        <li><strong>06_brightness_contrast/</strong> - Adjust intensity</li>
+                        <li><strong>07_thresholding_demo/</strong> - Binary, Otsu's, adaptive</li>
+                        <li><strong>08_pixel_manipulation/</strong> - Direct pixel access</li>
+                        <li><strong>09_image_compositing/</strong> - Blend and combine images</li>
+                        <li><strong>10_complete_image_processor/</strong> - ⭐ All basic techniques combined</li>
+                    </ul>
+                </div>
+
+                <div class="code-example-card">
+                    <h4>Advanced Image Processing (Examples 11-14)</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>11_custom_convolution/</strong> - Learn convolution with custom kernels</li>
+                        <li><strong>12_blur_filters_comparison/</strong> - Compare all blur methods</li>
+                        <li><strong>13_sharpening_filters/</strong> - Sharpen and unsharp mask</li>
+                        <li><strong>14_edge_detection_comparison/</strong> - Sobel, Laplacian, Canny</li>
+                    </ul>
+                </div>
+
+                <div class="code-example-card" style="background-color: #fff3cd; border-color: #ffc107;">
+                    <h4>🎨 Artistic & Interactive (Example 15)</h4>
+                    <ul style="margin-left: 1.5rem;">
+                        <li><strong>15_pixel_animation/</strong> - 🎁 Creative pixel-based animation</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1.5rem;"><strong>Also included:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Resources/</strong> - Sample images for testing (mountain, ocean, flowers)</li>
+                    <li><strong>README.md</strong> - Comprehensive guide with learning paths and tips</li>
+                </ul>
+
+                <div style="background-color: #d1ecf1; padding: 1rem; border-radius: 6px; margin-top: 1.5rem;">
+                    <p style="margin: 0; color: #0c5460;"><strong>💡 Learning Path:</strong> Start with examples 02-10 for fundamentals, then progress to 11-14 for advanced concepts. Example 10 (complete image processor) is excellent preparation for Lab 1!</p>
+                </div>
             </div>
         </section>
 
         <section class="content-section">
             <h2>📖 Required Reading</h2>
             <div class="week-card">
-                <h3>"In Defense of the Poor Image" by Hito Steyerl - e-flux</h3>
-                <p>Read this article before class to prepare for discussion.</p>
+                <h3>"In Defense of the Poor Image" by Hito Steyerl</h3>
+                <p>This influential essay explores how heavily compressed, low-resolution images have cultural and political value despite their technical flaws. As we learn about image processing and quality, consider what we gain and lose through digital manipulation.</p>
                 <p style="margin-top: 1rem;">
-                    <a href="https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image" class="btn" target="_blank">Read Article</a>
+                    <a href="https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image/" class="btn" target="_blank">📄 Read Article on e-flux</a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    <strong>For discussion:</strong> How does this relate to the filters and processing we're learning? What happens to meaning when images are transformed?
                 </p>
             </div>
         </section>
 
         <section class="content-section">
-            <h2>📝 Assignments</h2>
-            <div class="info-box">
-                <h3>Due This Week</h3>
-                <p>Reading Response 1, Lab 1: Basic image manipulation</p>
-            </div>
+            <h2>📚 Full Lecture Notes</h2>
+            <p style="background-color: #f0f7ff; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--primary-color);">
+                <strong>Complete comprehensive lecture notes</strong> covering all Week 2 topics are available below. The notes include detailed explanations, code examples, and conceptual connections to the reading.
+            </p>
             
-            <div class="week-card">
-                <h3>Lab Assignment 2</h3>
-                <p>Assignment details will be posted after class.</p>
-            </div>
-        </section>
+            <div class="lecture-notes">
+                <div class="toc">
+                    <h4>Table of Contents</h4>
+                    <ol>
+                        <li><a href="#week-1-recap">Week 1 Recap</a></li>
+                        <li><a href="#reading-discussion">Reading Discussion: Art in a Time of Surveillance</a></li>
+                        <li><a href="#basic-processing">Basic Image Processing: Hands-On Fundamentals</a></li>
+                        <li><a href="#advanced-processing">Advanced Image Processing: Filters & Convolution</a></li>
+                        <li><a href="#assignments">Week 2 Assignments</a></li>
+                        <li><a href="#resources">Additional Resources</a></li>
+                    </ol>
+                </div>
 
-        <section class="content-section">
-            <h2>🔗 Additional Resources</h2>
-            <div class="week-card">
-                <h3>Documentation & Tutorials</h3>
+                <div class="section-divider"></div>
+
+                <h3 id="week-1-recap">Week 1 Recap</h3>
+                <p>Last week we focused on conceptual foundations and environment setup. Due to extended time on installation troubleshooting, we covered:</p>
                 <ul>
-                    <li><a href="https://docs.opencv.org/" target="_blank">OpenCV Documentation</a></li>
-                    <li><a href="https://numpy.org/doc/stable/" target="_blank">NumPy Documentation</a></li>
-                    <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a></li>
+                    <li>✅ Course overview and goals</li>
+                    <li>✅ What is Computer Vision?</li>
+                    <li>✅ Artists working with CV (Zach Blas, Adam Harvey, Trevor Paglen, and others)</li>
+                    <li>✅ Digital images as NumPy arrays (conceptual)</li>
+                    <li>✅ Color spaces theory (RGB, BGR, Grayscale, HSV)</li>
+                    <li>✅ Environment setup and verification</li>
                 </ul>
-            </div>
-        </section>
+                
+                <p><strong>What we didn't get to:</strong> All practical hands-on coding with images. That's what today is for!</p>
 
-        <section class="content-section">
-            <h2>🔮 Next Week Preview</h2>
-            <p><strong>Week 3: Live Video Capture & Real-time Processing</strong></p>
-            <p>We'll continue building on this week's concepts with real-time camera input and interactive effects.</p>
+                <h4>Today's Structure</h4>
+                <p>Week 2 is divided into two major parts:</p>
+                <ul>
+                    <li><strong>Part 1: Basic Image Processing</strong> - Hands-on fundamentals we planned for Week 1</li>
+                    <li><strong>Part 2: Advanced Image Processing</strong> - Convolution, edge detection, and advanced filters</li>
+                </ul>
+
+                <p>This comprehensive approach ensures you have a solid foundation in image processing before we move to video in Week 3.</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="reading-discussion">Reading Discussion: Art in a Time of Surveillance</h3>
+                
+                <p>Before diving into technical content, let's discuss last week's reading and connect it to the computer vision techniques we're learning.</p>
+
+                <h4>Key Themes from "Art in a Time of Surveillance"</h4>
+                
+                <p>The article from The Intercept explores how contemporary artists respond to pervasive surveillance technologies. Let's connect these themes to our work:</p>
+
+                <h5>1. Making the Invisible Visible</h5>
+                <p>Surveillance systems work invisibly - hidden cameras, black-box algorithms, silent data collection. Artists like Trevor Paglen, Zach Blas, and Adam Harvey make these systems visible and tangible.</p>
+                <p><strong>Connection to CV:</strong> The image processing techniques we're learning today are the same ones used in facial recognition, behavior analysis, and tracking systems. Understanding how they work helps us engage critically.</p>
+
+                <h5>2. Counter-Surveillance Strategies</h5>
+                <p>Artists create practical resistance tools:</p>
+                <ul>
+                    <li><a href="https://cvdazzle.com/" target="_blank">CV Dazzle</a> - Fashion that fools facial recognition</li>
+                    <li><a href="http://www.zachblas.info/works/facial-weaponization-suite/" target="_blank">Facial Weaponization Suite</a> - Collective masks that evade detection</li>
+                </ul>
+                <p><strong>Connection to CV:</strong> Edge detection, feature recognition, and filters (which we'll learn about) are the technologies these artists are resisting and reimagining.</p>
+
+                <h5>3. Using Surveillance Tools for Expression</h5>
+                <p>Artists don't just critique - they use the same tools creatively:</p>
+                <ul>
+                    <li>Kyle McDonald uses face tracking for installations</li>
+                    <li>Lauren McCarthy becomes a "human smart home"</li>
+                    <li>Rafael Lozano-Hemmer creates poetic works with biometric data</li>
+                </ul>
+                <p><strong>Connection to CV:</strong> The image processing we're learning can be used for surveillance OR art. The techniques are neutral—it's how we use them that matters.</p>
+
+                <h4>Discussion Questions</h4>
+                <ol>
+                    <li>As we learn these CV techniques, what responsibilities do we have?</li>
+                    <li>Can the same technology be both oppressive and liberating?</li>
+                    <li>What role should artists play in technological development?</li>
+                    <li>How does understanding the technology change your perspective on surveillance?</li>
+                </ol>
+
+                <p style="background-color: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                    <strong>Reflection:</strong> As we dive into technical content today, keep these questions in mind. The goal isn't just technical skill—it's thoughtful, informed practice.
+                </p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="basic-processing">Basic Image Processing: Hands-On Fundamentals</h3>
+
+                <p>Now let's get hands-on with the practical skills! We'll start from the very beginning and build up systematically. For complete working code, see the code examples 02-10.</p>
+
+                <h4>Loading, Displaying, and Saving Images</h4>
+                <p>The foundation of all image processing:</p>
+                <pre><code>import cv2
+
+# Load an image
+img = cv2.imread('photo.jpg')
+
+# Always check if image loaded
+if img is None:
+    print("Error: Could not load image")
+    exit()
+
+print(f"Shape: {img.shape}")  # (height, width, channels)
+
+# Display image
+cv2.imshow('Original Image', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+# Save a copy
+cv2.imwrite('output.jpg', img)</code></pre>
+
+                <p><a href="https://docs.opencv.org/master/d4/da8/group__imgcodecs.html" target="_blank">OpenCV Image I/O Documentation</a></p>
+
+                <h4>Color Space Conversions</h4>
+                <p>Working with different color representations:</p>
+                <pre><code># BGR → Grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# BGR → RGB (for matplotlib)
+rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+# BGR → HSV (better for color-based tasks)
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)</code></pre>
+
+                <p><strong>Remember:</strong> OpenCV uses BGR by default, not RGB!</p>
+
+                <h4>Image Transformations</h4>
+                
+                <h5>Resizing</h5>
+                <pre><code># Resize to specific dimensions
+resized = cv2.resize(img, (800, 600))
+
+# Resize by scale factor
+half = cv2.resize(img, None, fx=0.5, fy=0.5)
+
+# Use appropriate interpolation:
+# INTER_AREA for shrinking
+# INTER_CUBIC for enlarging
+enlarged = cv2.resize(img, (1600, 1200), 
+                     interpolation=cv2.INTER_CUBIC)</code></pre>
+
+                <h5>Rotation and Flipping</h5>
+                <pre><code># Rotate 90 degrees
+rotated = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
+
+# Flip horizontally
+flipped = cv2.flip(img, 1)
+
+# For arbitrary angles:
+center = (img.shape[1]//2, img.shape[0]//2)
+M = cv2.getRotationMatrix2D(center, 45, 1.0)
+rotated_45 = cv2.warpAffine(img, M, (img.shape[1], img.shape[0]))</code></pre>
+
+                <h5>Cropping</h5>
+                <pre><code># Crop using NumPy slicing: img[y1:y2, x1:x2]
+cropped = img[100:400, 200:500]
+
+# Crop center region
+h, w = img.shape[:2]
+center_crop = img[h//4:3*h//4, w//4:3*w//4]</code></pre>
+
+                <h4>Basic Filters and Blurring</h4>
+                
+                <p>Blur images to reduce noise or create artistic effects:</p>
+
+                <pre><code># Gaussian Blur (most common)
+gaussian = cv2.GaussianBlur(img, (5, 5), 0)
+
+# Median Blur (removes salt-and-pepper noise)
+median = cv2.medianBlur(img, 5)
+
+# Bilateral Filter (preserves edges)
+bilateral = cv2.bilateralFilter(img, 9, 75, 75)</code></pre>
+
+                <p><strong>Quick guide:</strong></p>
+                <ul>
+                    <li><strong>Gaussian:</strong> General purpose, natural-looking</li>
+                    <li><strong>Median:</strong> Best for impulse noise</li>
+                    <li><strong>Bilateral:</strong> Smooths while keeping edges sharp</li>
+                </ul>
+
+                <h4>Brightness and Contrast</h4>
+                <pre><code># Brighten image
+brighter = cv2.add(img, 50)
+
+# Adjust both brightness and contrast
+# Formula: new = alpha * img + beta
+adjusted = cv2.convertScaleAbs(img, alpha=1.3, beta=50)</code></pre>
+
+                <h4>Thresholding</h4>
+                <p>Convert to binary (black and white):</p>
+                <pre><code>gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Simple binary threshold
+ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
+
+# Otsu's automatic threshold
+ret, otsu = cv2.threshold(gray, 0, 255, 
+                          cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+# Adaptive threshold (varying lighting)
+adaptive = cv2.adaptiveThreshold(gray, 255,
+                                cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                                cv2.THRESH_BINARY, 11, 2)</code></pre>
+
+                <h4>Pixel Manipulation</h4>
+                <pre><code># Access single pixel [y, x]
+pixel = img[100, 200]  # Returns [B, G, R]
+
+# Modify pixel
+img[100, 200] = [255, 0, 0]  # Set to blue
+
+# Modify region
+img[0:100, 0:100] = [0, 255, 0]  # Green square
+
+# Remove channel
+img[:, :, 2] = 0  # Remove all red</code></pre>
+
+                <h4>Image Compositing</h4>
+                <p>Combine multiple images:</p>
+                <pre><code># Alpha blending (70% img1 + 30% img2)
+blended = cv2.addWeighted(img1, 0.7, img2, 0.3, 0)
+
+# Picture-in-picture overlay
+background[y:y+h, x:x+w] = foreground</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="advanced-processing">Advanced Image Processing: Filters & Convolution</h3>
+
+                <h4>Understanding Convolution</h4>
+                <p><a href="https://en.wikipedia.org/wiki/Convolution" target="_blank">Convolution</a> is the mathematical operation behind most image filters. Think of it as a sliding window that examines each pixel with its neighbors.</p>
+
+                <p><strong>How it works:</strong></p>
+                <ol>
+                    <li>Place a kernel (small matrix) over a pixel</li>
+                    <li>Multiply kernel values × pixel values</li>
+                    <li>Sum all the products</li>
+                    <li>Replace center pixel with the sum</li>
+                    <li>Move to next pixel and repeat</li>
+                </ol>
+
+                <h5>Convolution in OpenCV</h5>
+                <pre><code>import numpy as np
+
+# Define a custom kernel
+kernel = np.array([[1, 2, 1],
+                   [2, 4, 2],
+                   [1, 2, 1]], dtype=np.float32)
+
+# Normalize (sum = 1)
+kernel = kernel / np.sum(kernel)
+
+# Apply convolution
+filtered = cv2.filter2D(img, -1, kernel)</code></pre>
+
+                <p><a href="https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04" target="_blank"><code>cv2.filter2D()</code> Documentation</a></p>
+
+                <h4>Custom Kernel Examples</h4>
+
+                <p><strong>Edge Enhancement:</strong></p>
+                <pre><code>edge_kernel = np.array([[-1, -1, -1],
+                        [-1,  8, -1],
+                        [-1, -1, -1]])</code></pre>
+
+                <p><strong>Sharpen:</strong></p>
+                <pre><code>sharpen_kernel = np.array([[ 0, -1,  0],
+                           [-1,  5, -1],
+                           [ 0, -1,  0]])</code></pre>
+
+                <p><strong>Emboss:</strong></p>
+                <pre><code>emboss_kernel = np.array([[-2, -1,  0],
+                          [-1,  1,  1],
+                          [ 0,  1,  2]])</code></pre>
+
+                <h4>Advanced Blur Techniques</h4>
+                <p>Now that we understand convolution, we can see that Gaussian blur is just convolution with a Gaussian kernel!</p>
+
+                <pre><code># Compare all blur methods
+gaussian = cv2.GaussianBlur(img, (9, 9), 0)
+median = cv2.medianBlur(img, 9)
+bilateral = cv2.bilateralFilter(img, 9, 75, 75)
+box = cv2.blur(img, (9, 9))</code></pre>
+
+                <h4>Sharpening Filters</h4>
+                <p>Enhance edges and details:</p>
+
+                <pre><code># Simple sharpen
+sharpen = np.array([[0, -1, 0],
+                    [-1, 5, -1],
+                    [0, -1, 0]])
+sharpened = cv2.filter2D(img, -1, sharpen)
+
+# Unsharp mask (more control)
+def unsharp_mask(image, amount=1.5):
+    blurred = cv2.GaussianBlur(image, (5, 5), 1.0)
+    sharpened = cv2.addWeighted(image, 1.0 + amount, 
+                                blurred, -amount, 0)
+    return sharpened
+
+sharp = unsharp_mask(img, amount=1.5)</code></pre>
+
+                <p><strong>Warning:</strong> Don't over-sharpen - it amplifies noise!</p>
+
+                <h4>Edge Detection</h4>
+                <p><a href="https://en.wikipedia.org/wiki/Edge_detection" target="_blank">Edge detection</a> identifies boundaries where intensity changes rapidly.</p>
+
+                <h5>Sobel Operator</h5>
+                <pre><code>gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Horizontal and vertical edges
+sobel_x = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+sobel_y = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+
+# Combine both directions
+sobel = cv2.magnitude(sobel_x, sobel_y)</code></pre>
+
+                <p><a href="https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html#gacea54f142e81b6758cb6f375ce782c8d" target="_blank"><code>cv2.Sobel()</code> Documentation</a></p>
+
+                <h5>Laplacian</h5>
+                <pre><code># Detects edges in all directions
+laplacian = cv2.Laplacian(gray, cv2.CV_64F)</code></pre>
+
+                <h5>Canny Edge Detection ⭐</h5>
+                <p>Most sophisticated method with best results:</p>
+                <pre><code># Always blur first!
+blurred = cv2.GaussianBlur(gray, (5, 5), 0)
+
+# Canny edge detection
+edges = cv2.Canny(blurred, 50, 150)
+
+cv2.imshow('Canny Edges', edges)</code></pre>
+
+                <p><a href="https://docs.opencv.org/master/dd/d1a/group__imgproc__feature.html#ga04723e007ed888ddf11d9ba04e2232de" target="_blank"><code>cv2.Canny()</code> Documentation</a></p>
+
+                <p><strong>Quick comparison:</strong></p>
+                <ul>
+                    <li><strong>Sobel:</strong> Fast, directional, can be noisy</li>
+                    <li><strong>Laplacian:</strong> All directions, very sensitive to noise</li>
+                    <li><strong>Canny:</strong> Best quality, most commonly used ⭐</li>
+                </ul>
+
+                <p style="background-color: #d1ecf1; padding: 1rem; border-radius: 6px; margin-top: 1.5rem;">
+                    <strong>💡 Pro Tip:</strong> Always apply Gaussian blur before edge detection to reduce noise! This dramatically improves results.
+                </p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="assignments">Week 2 Assignments</h3>
+
+                <h4>Reading Assignment: "In Defense of the Poor Image"</h4>
+                <p><strong>Article:</strong> <a href="https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image/" target="_blank">"In Defense of the Poor Image"</a> by Hito Steyerl (e-flux, 2009)</p>
+
+                <p><strong>Reading Response (500 words max):</strong></p>
+                <p>Write a thoughtful response addressing:</p>
+                <ol>
+                    <li>What is Steyerl's main argument about "poor images"? How does she define them?</li>
+                    <li>How does this relate to image processing? Consider filters, compression, and image quality.</li>
+                    <li>Do you agree with her valuation of poor images? Why or why not?</li>
+                    <li>How might this affect your approach to digital media?</li>
+                    <li>Can you think of examples where "poor images" have particular power or meaning?</li>
+                </ol>
+
+                <p><strong>Due:</strong> November 6, 2025 (next class)</p>
+                <p><strong>Submission:</strong> <a href="https://drive.google.com/drive/u/0/folders/12kIiR3l00a5bsnZ4iy2SIceO7srARpm2" target="_blank">Week 2 Reading Responses Google Drive folder</a></p>
+
+                <div class="section-divider"></div>
+
+                <h4>Lab Assignment 1: Comprehensive Image Processing</h4>
+                <p>Create a Python program demonstrating your understanding of image processing techniques.</p>
+
+                <h5>Requirements</h5>
+                <p>Your program must include:</p>
+                <ol>
+                    <li><strong>Image Input</strong> - Load at least one image, handle errors gracefully</li>
+                    <li><strong>At least THREE different processing techniques</strong>, such as:
+                        <ul>
+                            <li>Color space conversions</li>
+                            <li>Transformations (resize, rotate, flip, crop)</li>
+                            <li>Filters (Gaussian, median, bilateral)</li>
+                            <li>Brightness/contrast adjustment</li>
+                            <li>Thresholding</li>
+                            <li>Pixel manipulation</li>
+                            <li>Image compositing</li>
+                            <li>Custom convolution filters</li>
+                            <li>Edge detection</li>
+                            <li>Sharpening</li>
+                        </ul>
+                    </li>
+                    <li><strong>User Interaction</strong> (optional but recommended):
+                        <ul>
+                            <li>Keyboard controls to switch effects</li>
+                            <li>Trackbars for parameter adjustment</li>
+                            <li>Save processed images</li>
+                        </ul>
+                    </li>
+                    <li><strong>Code Quality</strong> - Well-organized functions, clear comments, proper cleanup</li>
+                </ol>
+
+                <h5>Deliverables</h5>
+                <p>Create a folder "YourName_Lab1" in the <a href="https://drive.google.com/drive/u/0/folders/1dk2fdopIbwyURZ63c5xG03uY6EgQEekd" target="_blank">Week 2 Assignments Google Drive folder</a> containing:</p>
+                <ol>
+                    <li><strong>Python script</strong> (.py file) with your code</li>
+                    <li><strong>Original image(s)</strong> used</li>
+                    <li><strong>Output images</strong> showing different effects (at least 3)</li>
+                    <li><strong>Screenshots</strong> (optional) showing your program in action</li>
+                    <li><strong>Brief written reflection</strong> (250-300 words) addressing:
+                        <ul>
+                            <li>What technical challenges did you encounter?</li>
+                            <li>What creative decisions did you make?</li>
+                            <li>What did you learn that surprised you?</li>
+                            <li>If you used AI assistance, how did you use it?</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Due:</strong> November 6, 2025 (next class)</p>
+
+                <div style="background-color: #d1ecf1; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem;">
+                    <p style="margin: 0; color: #0c5460;"><strong>💡 Tip:</strong> Check out Example 10 (complete_image_processor) in the code examples - it combines multiple techniques with keyboard controls and is an excellent starting point!</p>
+                </div>
+
+                <h5>Tips for Success</h5>
+                <ul>
+                    <li><strong>Start simple</strong> - Get basic loading/display working first</li>
+                    <li><strong>Test incrementally</strong> - Add one feature at a time</li>
+                    <li><strong>Be creative</strong> - Combine techniques in interesting ways</li>
+                    <li><strong>Handle errors</strong> - Check return values</li>
+                    <li><strong>Document AI use</strong> - Note it in comments if you use ChatGPT/Copilot</li>
+                    <li><strong>Have fun!</strong> - Experiment with artistic effects</li>
+                </ul>
+
+                <div class="section-divider"></div>
+
+                <h3 id="resources">Additional Resources</h3>
+
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="https://docs.opencv.org/" target="_blank">OpenCV Documentation</a> - Complete reference</li>
+                    <li><a href="https://docs.opencv.org/master/d4/d86/group__imgproc__filter.html" target="_blank">OpenCV Filtering</a> - All filter functions</li>
+                    <li><a href="https://docs.opencv.org/master/d6/d00/tutorial_py_root.html" target="_blank">OpenCV Python Tutorials</a> - Official tutorials</li>
+                    <li><a href="https://numpy.org/doc/" target="_blank">NumPy Documentation</a> - Array operations</li>
+                </ul>
+
+                <h4>Tutorials & Learning</h4>
+                <ul>
+                    <li><a href="https://docs.opencv.org/master/d2/d96/tutorial_py_table_of_contents_imgproc.html" target="_blank">OpenCV Image Processing Guide</a></li>
+                    <li><a href="https://pyimagesearch.com/" target="_blank">PyImageSearch</a> - Excellent CV tutorials</li>
+                    <li><a href="https://learnopencv.com/" target="_blank">Learn OpenCV</a> - Practical examples</li>
+                </ul>
+
+                <h4>Course Materials</h4>
+                <ul>
+                    <li><strong>Google Drive:</strong> <a href="https://drive.google.com/drive/u/1/folders/1QBC_GxFM-6KoTL7bqZjC76_r6MVasSG8" target="_blank">Digital Doubles Folder</a></li>
+                    <li><strong>Code Examples:</strong> Week2/code_examples/ (examples 01-15)</li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/js6450/Fall25_Digital_Doubles" target="_blank">Fall25_Digital_Doubles</a></li>
+                </ul>
+
+                <h4>Free Media Assets</h4>
+                <ul>
+                    <li><a href="https://unsplash.com/" target="_blank">Unsplash</a> - Free high-quality photos</li>
+                    <li><a href="https://www.pexels.com/" target="_blank">Pexels</a> - Free stock photos</li>
+                </ul>
+
+                <h4>Getting Help</h4>
+                <ul>
+                    <li><strong>Office Hours:</strong> By appointment - email <a href="mailto:jiwon.shin@nyu.edu">jiwon.shin@nyu.edu</a></li>
+                    <li><strong>Technical Issues:</strong> <a href="https://nyu.edu/it/servicedesk" target="_blank">NYU IT Service Desk</a></li>
+                    <li><strong>Libraries:</strong> <a href="https://library.nyu.edu/" target="_blank">Dibner Library</a></li>
+                    <li><strong>Writing Support:</strong> <a href="https://nyu.mywconline.com/" target="_blank">NYU Writing Center</a></li>
+                </ul>
+
+                <p style="margin-top: 3rem; text-align: center; color: #999; font-size: 0.9rem;">
+                    <em>Last updated: October 30, 2025 - Week 2 restructured to cover complete image processing (basic + advanced). Video processing moved to Week 3.</em>
+                </p>
+            </div>
         </section>
 
         <div class="text-center mt-2">
-            <a href="weeks.html" class="btn">← Back to All Weeks</a>
             <a href="week1.html" class="btn">← Previous Week</a>
+            <a href="weeks.html" class="btn">Back to All Weeks</a>
             <a href="week3.html" class="btn">Next Week →</a>
         </div>
     </div>
