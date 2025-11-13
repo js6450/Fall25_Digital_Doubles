@@ -215,16 +215,14 @@
                         </ul>
                     </li>
                     
-                    <li><strong>Object Detection (10-13)</strong>
+                    <li><strong>Object Detection (10-11)</strong>
                         <ul>
-                            <li>MobileNet-SSD object detection</li>
                             <li>YOLO object detection</li>
-                            <li>Real-time object detection with webcam</li>
                             <li>Simple object tracking</li>
                         </ul>
                     </li>
                     
-                    <li><strong>Pose Estimation (14-17)</strong>
+                    <li><strong>Pose Estimation (12-16)</strong>
                         <ul>
                             <li>OpenPose body keypoint detection</li>
                             <li>Accessing and using pose keypoints</li>
@@ -233,7 +231,7 @@
                         </ul>
                     </li>
                     
-                    <li><strong>Combined Systems (18-20)</strong>
+                    <li><strong>Combined Systems (17-19)</strong>
                         <ul>
                             <li>Face detection + pose estimation</li>
                             <li>Object detection + face detection</li>
@@ -784,51 +782,6 @@ cv2.waitKey(0)</code></pre>
                     <li><strong>YOLO:</strong> Very popular, multiple versions</li>
                     <li><strong>EfficientDet:</strong> State-of-the-art accuracy</li>
                 </ul>
-
-                <h4>MobileNet-SSD Object Detection</h4>
-                <p>Trained on COCO Dataset with 80 object categories.</p>
-
-                <pre><code>import cv2
-import numpy as np
-
-# Load the model
-model_file = "MobileNetSSD_deploy.caffemodel"
-config_file = "MobileNetSSD_deploy.prototxt"
-net = cv2.dnn.readNetFromCaffe(config_file, model_file)
-
-CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
-           "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-           "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
-           "sofa", "train", "tvmonitor"]
-
-# Load image
-img = cv2.imread('scene.jpg')
-h, w = img.shape[:2]
-
-# Prepare input
-blob = cv2.dnn.blobFromImage(cv2.resize(img, (300, 300)), 0.007843, 
-                              (300, 300), (127.5, 127.5, 127.5), swapRB=False)
-
-# Run detection
-net.setInput(blob)
-detections = net.forward()
-
-# Process detections
-for i in range(detections.shape[2]):
-    confidence = detections[0, 0, i, 2]
-    
-    if confidence > 0.5:
-        class_id = int(detections[0, 0, i, 1])
-        box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
-        (x1, y1, x2, y2) = box.astype("int")
-        
-        label = f"{CLASSES[class_id]}: {confidence*100:.2f}%"
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(img, label, (x1, y1-10),
-                   cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-cv2.imshow('Object Detection', img)
-cv2.waitKey(0)</code></pre>
 
                 <div class="section-divider"></div>
 
