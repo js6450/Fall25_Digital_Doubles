@@ -5,12 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 4: Computer Vision - Detection & Feature Recognition - Digital Doubles</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lecture-notes {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .lecture-notes h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        .lecture-notes h4 {
+            color: var(--secondary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        .lecture-notes h5 {
+            color: var(--text-color);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .lecture-notes p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .lecture-notes ul, .lecture-notes ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        .lecture-notes li {
+            margin-bottom: 0.5rem;
+        }
+        .lecture-notes code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .lecture-notes pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .lecture-notes pre code {
+            background: none;
+            padding: 0;
+        }
+        .lecture-notes a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .lecture-notes a:hover {
+            text-decoration: underline;
+        }
+        .lecture-notes .toc {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+        .lecture-notes .toc ol {
+            margin-left: 1.5rem;
+        }
+        .lecture-notes blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #666;
+        }
+        .section-divider {
+            border-top: 2px solid var(--border-color);
+            margin: 3rem 0;
+        }
+        .code-example-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .code-example-card h4 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .code-example-card p {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <h1>Week 4: Computer Vision - Detection & Feature Recognition</h1>
-            <p class="subtitle">November 14, 2025</p>
+            <p class="subtitle">November 13, 2025</p>
         </div>
     </header>
 
@@ -25,74 +142,1004 @@
     <div class="container">
         <section class="content-section">
             <h2>Overview</h2>
-            <p>
-                This week's session focuses on computer vision - detection & feature recognition. Materials will be posted after the class session.
+            <div class="info-box" style="background-color: #fff3cd; border-left: 4px solid #ffc107;">
+                <p style="margin: 0;"><strong>🔍 From Processing to Understanding!</strong> This week we transition from low-level image manipulation to high-level computer vision—teaching machines to "see" and understand visual content.</p>
+            </div>
+            <p style="margin-top: 1.5rem;">
+                Week 4 marks a major transition: from asking <em>"What pixel values are these?"</em> to <em>"What objects are in this frame?"</em> 
+                We explore detection systems that enable machines to identify faces, recognize objects, detect features, and track human poses. Critically, 
+                we examine bias in computer vision systems and discuss ethical responsibilities when creating detection-based installations.
             </p>
         </section>
 
         <section class="content-section">
-            <h2>📚 Lecture Materials</h2>
-            <div class="week-card">
-                <h3>Lecture Notes & Slides</h3>
-                <p>Materials will be posted after class on November 14, 2025.</p>
-                <p style="color: #999; margin-top: 1rem;">Check back after class for lecture notes, slides, and additional resources.</p>
+            <h2>Topics Covered</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h3 style="color: var(--primary-color); font-size: 1.3rem;">Part 1: Detection Systems</h3>
+                    <ul>
+                        <li><strong>Face Detection:</strong> Haar Cascades vs. DNN (ResNet-SSD)</li>
+                        <li><strong>Feature Detection:</strong> Corners, SIFT, ORB, feature matching</li>
+                        <li><strong>Object Detection:</strong> MobileNet-SSD and YOLO</li>
+                        <li><strong>Pose Estimation:</strong> OpenPose with OpenCV DNN</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: var(--secondary-color); font-size: 1.3rem;">Part 2: ML Integration & Ethics</h3>
+                    <ul>
+                        <li>OpenCV DNN module for pre-trained models</li>
+                        <li>Understanding confidence scores and bounding boxes</li>
+                        <li>Bias in CV systems and demographic disparities</li>
+                        <li>Surveillance, privacy, and ethical considerations</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="content-section">
             <h2>💻 Code Examples</h2>
-            <div class="week-card">
-                <h3>Week 4 Code Examples</h3>
-                <p>Code examples and demonstrations will be posted here after class.</p>
-                <p style="color: #999; margin-top: 1rem;">All code will be available in the Week4 folder with detailed READMEs.</p>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>📖 Required Reading</h2>
-            <div class="week-card">
-                <h3>"This is how AI bias really happens—and why it's so hard to fix"</h3>
-                <p>Read this article before class to prepare for discussion.</p>
+            
+            <div class="week-card" style="background-color: #f0f7ff; border-left: 4px solid var(--primary-color);">
+                <h3>📦 Download All Week 4 Code Examples</h3>
+                <p>From basic face detection to advanced multi-modal detection systems with pre-trained models!</p>
                 <p style="margin-top: 1rem;">
-                    <a href="https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/" class="btn" target="_blank">Read Article</a>
+                    <a href="resources/week4_code_examples.zip" class="btn" download style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        ⬇️ Download Code Examples (ZIP)
+                    </a>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                    Includes 20 comprehensive examples with pre-trained models, utility functions, sample images, and detailed documentation
                 </p>
             </div>
-        </section>
-
-        <section class="content-section">
-            <h2>📝 Assignments</h2>
-            <div class="info-box">
-                <h3>Due This Week</h3>
-                <p>Reading Response 3, Lab 3: Real-time interaction, Final project proposal</p>
-            </div>
             
-            <div class="week-card">
-                <h3>Lab Assignment 4</h3>
-                <p>Assignment details will be posted after class.</p>
-            </div>
-        </section>
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>📁 What's Included: 20 Detection Examples</h3>
+                
+                <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                    <li><strong>Face Detection (01-05)</strong>
+                        <ul>
+                            <li>Haar Cascade face detection</li>
+                            <li>DNN-based face detection (ResNet-SSD)</li>
+                            <li>Real-time face detection with webcam</li>
+                            <li>Face blur for privacy protection</li>
+                            <li>Face detection comparison (Haar vs. DNN)</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Feature Detection & Matching (06-09)</strong>
+                        <ul>
+                            <li>Corner detection (Harris, Shi-Tomasi)</li>
+                            <li>SIFT feature detection</li>
+                            <li>ORB feature detection</li>
+                            <li>Feature matching between images</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Object Detection (10-13)</strong>
+                        <ul>
+                            <li>MobileNet-SSD object detection</li>
+                            <li>YOLO object detection</li>
+                            <li>Real-time object detection with webcam</li>
+                            <li>Simple object tracking</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Pose Estimation (14-17)</strong>
+                        <ul>
+                            <li>OpenPose body keypoint detection</li>
+                            <li>Accessing and using pose keypoints</li>
+                            <li>Pose-based interactive effects</li>
+                            <li>Real-time pose tracking with webcam</li>
+                        </ul>
+                    </li>
+                    
+                    <li><strong>Combined Systems (18-20)</strong>
+                        <ul>
+                            <li>Face detection + pose estimation</li>
+                            <li>Object detection + face detection</li>
+                            <li>Complete multi-modal detection system</li>
+                        </ul>
+                    </li>
+                </ol>
 
-        <section class="content-section">
-            <h2>🔗 Additional Resources</h2>
-            <div class="week-card">
-                <h3>Documentation & Tutorials</h3>
-                <ul>
-                    <li><a href="https://docs.opencv.org/" target="_blank">OpenCV Documentation</a></li>
-                    <li><a href="https://numpy.org/doc/stable/" target="_blank">NumPy Documentation</a></li>
-                    <li><a href="https://docs.python.org/3/" target="_blank">Python Documentation</a></li>
+                <p style="margin-top: 1.5rem;"><strong>Also included:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>models/</strong> - Pre-trained model files (face detection, object detection)</li>
+                    <li><strong>utils/</strong> - Helper functions (detection visualizer, FPS calculator, model downloader)</li>
+                    <li><strong>resources/</strong> - Sample images for testing</li>
+                    <li><strong>requirements.txt</strong> - Easy dependency installation</li>
+                    <li><strong>README.md</strong> - Complete setup instructions and usage examples</li>
                 </ul>
             </div>
         </section>
 
         <section class="content-section">
-            <h2>🔮 Next Week Preview</h2>
-            <p><strong>Week 5: Advanced CV & ML + Final Project Proposals</strong></p>
-            <p>We'll continue building on this week's concepts...</p>
+            <h2>📚 Full Lecture Notes</h2>
+            <p style="background-color: #f0f7ff; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--primary-color);">
+                <strong>Complete comprehensive lecture notes</strong> covering all Week 4 topics are available below. The notes include detailed explanations, code examples, and critical perspectives on bias in CV systems.
+            </p>
+            
+            <div class="lecture-notes">
+                <div class="toc">
+                    <h4>Table of Contents</h4>
+                    <ol>
+                        <li><a href="#week-3-recap">Week 3 Recap</a></li>
+                        <li><a href="#reading-discussion">Reading Discussion: The Zoom Gaze</a></li>
+                        <li><a href="#intro-cv-detection">Introduction to Computer Vision Detection</a></li>
+                        <li><a href="#face-detection">Face Detection</a></li>
+                        <li><a href="#feature-detection">Feature Detection & Matching</a></li>
+                        <li><a href="#object-detection">Object Detection</a></li>
+                        <li><a href="#pose-estimation">Pose Estimation</a></li>
+                        <li><a href="#ml-models">Integrating ML Models with OpenCV</a></li>
+                        <li><a href="#ethics">Ethics & Critical Perspectives</a></li>
+                        <li><a href="#assignments">Week 4 Assignments</a></li>
+                        <li><a href="#resources">Additional Resources</a></li>
+                    </ol>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <h3 id="week-3-recap">Week 3 Recap</h3>
+
+                <h4>What We Covered Last Week</h4>
+                <p>Week 3 focused on video processing and live video capture - moving from still images to the temporal dimension:</p>
+
+                <p><strong>Part 1: Video Fundamentals</strong></p>
+                <ul>
+                    <li>Understanding video as sequences of images</li>
+                    <li>Reading and writing video files</li>
+                    <li>Frame-by-frame processing pipelines</li>
+                    <li>Video properties (FPS, resolution, codecs)</li>
+                    <li>Processing pre-recorded video files</li>
+                </ul>
+
+                <p><strong>Part 2: Live Video Capture</strong></p>
+                <ul>
+                    <li>Accessing webcam input with <code>cv2.VideoCapture()</code></li>
+                    <li>Real-time processing loops</li>
+                    <li>Creating interactive video effects</li>
+                    <li>Keyboard controls and user input</li>
+                    <li>Recording processed video output</li>
+                </ul>
+
+                <p><strong>Part 3: Motion Detection</strong></p>
+                <ul>
+                    <li>Frame differencing techniques</li>
+                    <li>Background subtraction algorithms</li>
+                    <li>Threshold-based motion detection</li>
+                    <li>Visualizing motion in video</li>
+                </ul>
+
+                <p><strong>Key Takeaway:</strong> Video is just a sequence of images processed in real-time. The skills we learned for image processing (filters, transformations, effects) can all be applied frame-by-frame to video, opening up possibilities for interactive installations and live visual systems.</p>
+
+                <h4>This Week's Focus: Teaching Computers to "See"</h4>
+                <p><strong>Today we transition from processing to understanding:</strong></p>
+                <p>From "What pixel values are these?" to "What objects are in this frame?"</p>
+
+                <p>We're moving from low-level image manipulation to high-level computer vision - teaching machines to detect, recognize, and understand visual content.</p>
+
+                <p><strong>Part 1: Detection Systems</strong></p>
+                <ul>
+                    <li>Face detection (Haar Cascades and deep learning)</li>
+                    <li>Feature detection and matching (SIFT, ORB)</li>
+                    <li>Object detection (MobileNet-SSD, YOLO)</li>
+                    <li>Pose estimation (body keypoint tracking)</li>
+                </ul>
+
+                <p><strong>Part 2: Machine Learning Integration</strong></p>
+                <ul>
+                    <li>Loading pre-trained models</li>
+                    <li>Running inference with OpenCV DNN module</li>
+                    <li>Understanding confidence scores</li>
+                    <li>Real-time detection performance</li>
+                </ul>
+
+                <p><strong>Part 3: Critical Perspectives</strong></p>
+                <ul>
+                    <li>Bias in computer vision systems</li>
+                    <li>Surveillance and privacy concerns</li>
+                    <li>Ethical use of detection technologies</li>
+                </ul>
+
+                <p><strong>Why This Matters:</strong> These detection technologies are the building blocks of facial recognition systems, smart cameras, autonomous vehicles, and surveillance infrastructure. Understanding how they work - and their limitations and biases - is essential for using them responsibly in creative practice.</p>
+
+                <div class="section-divider"></div>
+
+                <h3 id="reading-discussion">Reading Discussion: The Zoom Gaze</h3>
+
+                <p>Before diving into detection algorithms, let's discuss last week's reading about video conferencing and self-image.</p>
+
+                <h4>Key Themes from "The Zoom Gaze"</h4>
+                <p>Autumn Caines' essay <a href="https://reallifemag.com/the-zoom-gaze/" target="_blank">"The Zoom Gaze"</a> examines how video conferencing platforms like Zoom change our relationship with our own image and others' perception of us.</p>
+
+                <p><strong>What is the "Zoom Gaze"?</strong></p>
+                <p>Caines describes the experience of seeing yourself on camera during video calls as fundamentally different from other forms of self-viewing:</p>
+                <ul>
+                    <li>We're simultaneously performer and audience</li>
+                    <li>Constant self-monitoring and self-correction</li>
+                    <li>Awareness of being watched while watching ourselves</li>
+                    <li>The "gaze" splits between looking at others and looking at our own image</li>
+                </ul>
+
+                <p><strong>Key Concepts:</strong></p>
+                <ul>
+                    <li><strong>Self-surveillance:</strong> Constantly checking and adjusting our appearance</li>
+                    <li><strong>Performativity:</strong> We're always "on stage" during video calls</li>
+                    <li><strong>Digital mirror:</strong> The screen becomes a mirror we can't look away from</li>
+                    <li><strong>Flattening:</strong> 3D presence reduced to 2D grid of faces</li>
+                </ul>
+
+                <h4>The Camera's Framing Power</h4>
+                <p>Video platforms control how we're seen:</p>
+                <ul>
+                    <li>Fixed camera angles (often unflattering)</li>
+                    <li>Limited control over framing</li>
+                    <li>Gallery view reduces us to small rectangles</li>
+                    <li>Default settings prioritize certain aesthetics</li>
+                </ul>
+
+                <p><strong>Connection to Our Work:</strong> The computer vision techniques we're learning today (face detection, pose estimation) are the same technologies that power video conferencing. When we detect faces or bodies, we're making the same kinds of technical decisions that shape the "Zoom gaze."</p>
+
+                <h4>Filters and Virtual Backgrounds</h4>
+                <p>Caines discusses how Zoom filters and backgrounds reveal anxieties about appearance:</p>
+                <ul>
+                    <li>Filters smooth skin, adjust lighting, "beautify"</li>
+                    <li>Virtual backgrounds hide our real environments</li>
+                    <li>These tools acknowledge the platform's judgmental gaze</li>
+                    <li>But they also create new pressures and norms</li>
+                </ul>
+
+                <h4>Discussion Questions</h4>
+                <ol>
+                    <li>How has video conferencing changed your relationship with your own image?</li>
+                    <li>What does Caines mean by the "Zoom gaze"?</li>
+                    <li>How does this reading connect to the face detection and pose estimation we're learning?</li>
+                    <li>Who is visible and invisible in video conferencing platforms?</li>
+                    <li>What are the implications of building detection systems for interactive art?</li>
+                </ol>
+
+                <div class="section-divider"></div>
+
+                <h3 id="intro-cv-detection">Introduction to Computer Vision Detection</h3>
+
+                <h4>What is Computer Vision?</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Computer_vision" target="_blank">Computer Vision (CV)</a></strong> is a field of artificial intelligence that trains computers to interpret and understand visual information from the world.</p>
+
+                <p><strong>The Difference:</strong></p>
+                <table>
+                    <tr>
+                        <th>Image Processing</th>
+                        <th>Computer Vision</th>
+                    </tr>
+                    <tr>
+                        <td>Low-level operations on pixels</td>
+                        <td>High-level interpretation of content</td>
+                    </tr>
+                    <tr>
+                        <td>No "understanding" of content</td>
+                        <td>"Understanding" what's in the image</td>
+                    </tr>
+                    <tr>
+                        <td>Filter: blur, sharpen, adjust colors</td>
+                        <td>Detect: find objects, faces, features</td>
+                    </tr>
+                    <tr>
+                        <td>Transform: resize, rotate, crop</td>
+                        <td>Recognize: identify specific objects or people</td>
+                    </tr>
+                    <tr>
+                        <td>Example: "Make this image blurrier"</td>
+                        <td>Example: "Find all the faces in this image"</td>
+                    </tr>
+                </table>
+
+                <p><strong>The Bridge: Machine Learning</strong></p>
+                <p>Modern CV relies heavily on machine learning, especially deep learning:</p>
+                <ul>
+                    <li>Systems learn from thousands/millions of examples</li>
+                    <li>No explicit programming of "what a face looks like"</li>
+                    <li>Neural networks learn features automatically</li>
+                    <li>Pre-trained models can be used without training from scratch</li>
+                </ul>
+
+                <h4>Types of Detection Tasks</h4>
+                <ol>
+                    <li><strong>Classification:</strong> "What is in this image?" (Single label for entire image)</li>
+                    <li><strong>Detection:</strong> "What objects are in this image and where are they?" (Multiple objects with bounding boxes)</li>
+                    <li><strong>Segmentation:</strong> "Which pixels belong to which objects?" (Pixel-level classification)</li>
+                    <li><strong>Keypoint Detection:</strong> "Where are important points on this object?" (Specific anatomical or structural points)</li>
+                </ol>
+
+                <p><strong>Today's focus:</strong> Detection and keypoint detection</p>
+
+                <h4>Classical vs. Deep Learning Approaches</h4>
+                <table>
+                    <tr>
+                        <th>Classical CV (Pre-2012)</th>
+                        <th>Deep Learning CV (2012-present)</th>
+                    </tr>
+                    <tr>
+                        <td>Hand-crafted features</td>
+                        <td>Learned features from data</td>
+                    </tr>
+                    <tr>
+                        <td>Examples: Haar Cascades, HOG, SIFT</td>
+                        <td>Examples: ResNet, YOLO, MediaPipe</td>
+                    </tr>
+                    <tr>
+                        <td>✅ Fast, lightweight</td>
+                        <td>✅ Much higher accuracy</td>
+                    </tr>
+                    <tr>
+                        <td>✅ Works on weak hardware</td>
+                        <td>✅ Handles variation better</td>
+                    </tr>
+                    <tr>
+                        <td>❌ Limited accuracy</td>
+                        <td>❌ Computationally expensive</td>
+                    </tr>
+                    <tr>
+                        <td>❌ Struggles with variation</td>
+                        <td>❌ "Black box" - hard to interpret</td>
+                    </tr>
+                </table>
+
+                <h4>OpenCV's Detection Ecosystem</h4>
+                <p>OpenCV provides multiple ways to do detection:</p>
+                <ol>
+                    <li><strong>Cascade Classifiers</strong> - <code>cv2.CascadeClassifier()</code>, classical approach</li>
+                    <li><strong>DNN Module</strong> - <code>cv2.dnn</code>, load deep learning models from various frameworks</li>
+                    <li><strong>Feature Detectors</strong> - SIFT, SURF, ORB for keypoint detection</li>
+                    <li><strong>Traditional Methods</strong> - Template matching, contour detection, color-based detection</li>
+                </ol>
+
+                <div class="section-divider"></div>
+
+                <h3 id="face-detection">Face Detection</h3>
+
+                <p>Face detection is one of the most common CV tasks - finding all faces in an image and drawing bounding boxes around them.</p>
+
+                <h4>What is Face Detection?</h4>
+                <p><strong>Face Detection vs. Face Recognition:</strong></p>
+                <ul>
+                    <li><strong>Face Detection:</strong> "Are there faces in this image?" "Where are they?" (Doesn't identify who the person is)</li>
+                    <li><strong>Face Recognition:</strong> "Who is this person?" (Identifies specific individuals, requires detecting faces first)</li>
+                </ul>
+
+                <p>Today we're focusing on <strong>detection only</strong> - finding faces, not identifying people.</p>
+
+                <h4>Method 1: Haar Cascade Face Detection</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Haar-like_feature" target="_blank">Haar Cascade Classifiers</a></strong> are a classical machine learning approach proposed by Viola and Jones in 2001.</p>
+
+                <p><strong>How They Work:</strong></p>
+                <ol>
+                    <li><strong>Haar-like Features:</strong> Rectangular patterns that detect light/dark regions</li>
+                    <li><strong>Cascade of Classifiers:</strong> Multiple stages of increasingly complex tests</li>
+                    <li><strong>Training:</strong> Trained on thousands of face/non-face examples</li>
+                </ol>
+
+                <pre><code>import cv2
+
+# Load pre-trained cascade classifier
+face_cascade = cv2.CascadeClassifier(
+    cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
+)
+
+# Load image
+img = cv2.imread('people.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Detect faces
+faces = face_cascade.detectMultiScale(
+    gray,
+    scaleFactor=1.1,    # Image pyramid scale
+    minNeighbors=5,     # Minimum neighbors for detection
+    minSize=(30, 30)    # Minimum face size
+)
+
+# Draw rectangles around faces
+for (x, y, w, h) in faces:
+    cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+cv2.imshow('Detected Faces', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+
+                <p><strong>Key Parameters:</strong></p>
+                <ul>
+                    <li><strong>scaleFactor</strong> (default: 1.1) - How much the image size is reduced at each scale</li>
+                    <li><strong>minNeighbors</strong> (default: 5) - How many neighbors each detection must have to be kept</li>
+                    <li><strong>minSize</strong> / <strong>maxSize</strong> - Minimum and maximum face size to detect</li>
+                </ul>
+
+                <p><strong>Strengths:</strong> Very fast, works on low-power devices, good for frontal faces</p>
+                <p><strong>Limitations:</strong> Struggles with rotated faces, poor with partial occlusion, lighting sensitive, many false positives</p>
+
+                <h4>Method 2: DNN-based Face Detection</h4>
+                <p>Modern face detection uses <strong>deep neural networks</strong> for much better accuracy.</p>
+
+                <pre><code>import cv2
+import numpy as np
+
+# Load DNN face detector (ResNet-based)
+model_file = "res10_300x300_ssd_iter_140000.caffemodel"
+config_file = "deploy.prototxt"
+net = cv2.dnn.readNetFromCaffe(config_file, model_file)
+
+# Load image
+img = cv2.imread('people.jpg')
+h, w = img.shape[:2]
+
+# Prepare input blob
+blob = cv2.dnn.blobFromImage(
+    img,
+    scalefactor=1.0,
+    size=(300, 300),
+    mean=(104.0, 177.0, 123.0),
+    swapRB=False
+)
+
+# Run inference
+net.setInput(blob)
+detections = net.forward()
+
+# Process detections
+for i in range(detections.shape[2]):
+    confidence = detections[0, 0, i, 2]
+    
+    if confidence > 0.5:
+        box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+        (x1, y1, x2, y2) = box.astype("int")
+        
+        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        text = f"{confidence * 100:.2f}%"
+        cv2.putText(img, text, (x1, y1 - 10),
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+cv2.imshow('DNN Face Detection', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+
+                <p><strong>Key Concepts:</strong></p>
+                <ul>
+                    <li><strong>Blob:</strong> Pre-processed input for neural networks</li>
+                    <li><strong>Confidence Score:</strong> Probability that detection is correct (0.0 to 1.0)</li>
+                    <li><strong>Bounding Box:</strong> Normalized coordinates (0.0 to 1.0)</li>
+                </ul>
+
+                <h4>Comparison: Haar vs. DNN</h4>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Haar Cascade</th>
+                        <th>DNN (ResNet-SSD)</th>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>Very fast (~30-60 fps)</td>
+                        <td>Fast (~15-30 fps)</td>
+                    </tr>
+                    <tr>
+                        <td>Accuracy</td>
+                        <td>Moderate</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Angles</td>
+                        <td>Frontal only</td>
+                        <td>Multiple angles</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>Speed-critical, frontal faces</td>
+                        <td>Higher accuracy needed</td>
+                    </tr>
+                </table>
+
+                <div class="section-divider"></div>
+
+                <h3 id="feature-detection">Feature Detection & Matching</h3>
+
+                <p>While face detection finds entire faces, <strong>feature detection</strong> finds interesting points (keypoints) in images that can be used for matching, tracking, and recognition.</p>
+
+                <h4>What are Features?</h4>
+                <p><strong>Features</strong> (also called <strong>keypoints</strong>) are distinctive, easily recognizable points in an image.</p>
+
+                <p><strong>Good features are:</strong></p>
+                <ul>
+                    <li>Repeatable (can be found again in different images)</li>
+                    <li>Distinctive (look different from surrounding points)</li>
+                    <li>Invariant (recognizable despite changes in scale, rotation, lighting)</li>
+                    <li>Efficient (fast to detect and describe)</li>
+                </ul>
+
+                <p><strong>Why detect features?</strong></p>
+                <ul>
+                    <li>Object recognition: "Is this object in this image?"</li>
+                    <li>Image matching: "Are these two images of the same thing?"</li>
+                    <li>Tracking: "Where did this point move to?"</li>
+                    <li>3D reconstruction</li>
+                    <li>Image stitching</li>
+                </ul>
+
+                <h4>Corner Detection</h4>
+                <p>Corners are good features because they're distinctive in multiple directions.</p>
+
+                <pre><code>import cv2
+import numpy as np
+
+img = cv2.imread('building.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Shi-Tomasi corner detection
+corners = cv2.goodFeaturesToTrack(
+    gray,
+    maxCorners=100,
+    qualityLevel=0.01,
+    minDistance=10
+)
+
+corners = np.int0(corners)
+
+# Draw corners
+for corner in corners:
+    x, y = corner.ravel()
+    cv2.circle(img, (x, y), 3, (0, 255, 0), -1)
+
+cv2.imshow('Corners', img)
+cv2.waitKey(0)</code></pre>
+
+                <h4>SIFT Features</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Scale-invariant_feature_transform" target="_blank">SIFT (Scale-Invariant Feature Transform)</a></strong> is one of the most powerful feature detectors.</p>
+
+                <pre><code>import cv2
+
+img = cv2.imread('object.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Create SIFT detector
+sift = cv2.SIFT_create()
+
+# Detect keypoints and compute descriptors
+keypoints, descriptors = sift.detectAndCompute(gray, None)
+
+# Draw keypoints
+img_keypoints = cv2.drawKeypoints(
+    img, keypoints, None,
+    flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS
+)
+
+cv2.imshow('SIFT Keypoints', img_keypoints)
+cv2.waitKey(0)</code></pre>
+
+                <p><strong>Properties:</strong> Scale invariant, rotation invariant, illumination invariant, distinctive 128-dimensional descriptors</p>
+
+                <h4>ORB Features</h4>
+                <p><strong><a href="https://en.wikipedia.org/wiki/Oriented_FAST_and_rotated_BRIEF" target="_blank">ORB (Oriented FAST and Rotated BRIEF)</a></strong> is a fast, free alternative to SIFT.</p>
+
+                <pre><code>import cv2
+
+img = cv2.imread('object.jpg')
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+# Create ORB detector
+orb = cv2.ORB_create(nfeatures=500)
+
+# Detect and compute
+keypoints, descriptors = orb.detectAndCompute(gray, None)
+
+# Draw keypoints
+img_keypoints = cv2.drawKeypoints(img, keypoints, None, color=(0, 255, 0))
+
+cv2.imshow('ORB Keypoints', img_keypoints)
+cv2.waitKey(0)</code></pre>
+
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>SIFT</th>
+                        <th>ORB</th>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td>Slow</td>
+                        <td>Fast (10-100x faster)</td>
+                    </tr>
+                    <tr>
+                        <td>Descriptor</td>
+                        <td>128 floats</td>
+                        <td>256 bits (32 bytes)</td>
+                    </tr>
+                    <tr>
+                        <td>Accuracy</td>
+                        <td>Better</td>
+                        <td>Good</td>
+                    </tr>
+                    <tr>
+                        <td>Use Case</td>
+                        <td>High accuracy needed</td>
+                        <td>Real-time applications</td>
+                    </tr>
+                </table>
+
+                <div class="section-divider"></div>
+
+                <h3 id="object-detection">Object Detection</h3>
+
+                <p>Face detection finds faces. <strong>Object detection</strong> finds many types of objects simultaneously, with labels.</p>
+
+                <h4>What is Object Detection?</h4>
+                <p>Object detection answers two questions:</p>
+                <ol>
+                    <li><strong>What</strong> objects are in the image? (Classification)</li>
+                    <li><strong>Where</strong> are they? (Localization)</li>
+                </ol>
+
+                <p><strong>Output:</strong> Bounding boxes around objects, class labels, confidence scores</p>
+
+                <h4>Using Pre-trained Object Detectors</h4>
+                <p>Common models in OpenCV:</p>
+                <ul>
+                    <li><strong>MobileNet-SSD:</strong> Fast, good for real-time</li>
+                    <li><strong>YOLO:</strong> Very popular, multiple versions</li>
+                    <li><strong>EfficientDet:</strong> State-of-the-art accuracy</li>
+                </ul>
+
+                <h4>MobileNet-SSD Object Detection</h4>
+                <p>Trained on COCO Dataset with 80 object categories.</p>
+
+                <pre><code>import cv2
+import numpy as np
+
+# Load the model
+model_file = "MobileNetSSD_deploy.caffemodel"
+config_file = "MobileNetSSD_deploy.prototxt"
+net = cv2.dnn.readNetFromCaffe(config_file, model_file)
+
+CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
+           "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
+           "dog", "horse", "motorbike", "person", "pottedplant", "sheep",
+           "sofa", "train", "tvmonitor"]
+
+# Load image
+img = cv2.imread('scene.jpg')
+h, w = img.shape[:2]
+
+# Prepare input
+blob = cv2.dnn.blobFromImage(cv2.resize(img, (300, 300)), 0.007843, 
+                              (300, 300), (127.5, 127.5, 127.5), swapRB=False)
+
+# Run detection
+net.setInput(blob)
+detections = net.forward()
+
+# Process detections
+for i in range(detections.shape[2]):
+    confidence = detections[0, 0, i, 2]
+    
+    if confidence > 0.5:
+        class_id = int(detections[0, 0, i, 1])
+        box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
+        (x1, y1, x2, y2) = box.astype("int")
+        
+        label = f"{CLASSES[class_id]}: {confidence*100:.2f}%"
+        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv2.putText(img, label, (x1, y1-10),
+                   cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+cv2.imshow('Object Detection', img)
+cv2.waitKey(0)</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="pose-estimation">Pose Estimation</h3>
+
+                <p><strong>Pose estimation</strong> detects human body keypoints - specific anatomical points like shoulders, elbows, wrists, hips, knees, and ankles.</p>
+
+                <h4>OpenPose with OpenCV DNN</h4>
+                <p><strong>Note:</strong> This course uses <strong>OpenPose via OpenCV's DNN module</strong> instead of MediaPipe because MediaPipe is not yet fully supported with Python 3.13.</p>
+
+                <h4>OpenPose COCO Model</h4>
+                <p>The COCO body model detects <strong>18 body keypoints:</strong></p>
+                <ul>
+                    <li>0: Nose</li>
+                    <li>1: Neck</li>
+                    <li>2: Right Shoulder, 3: Right Elbow, 4: Right Wrist</li>
+                    <li>5: Left Shoulder, 6: Left Elbow, 7: Left Wrist</li>
+                    <li>8: Right Hip, 9: Right Knee, 10: Right Ankle</li>
+                    <li>11: Left Hip, 12: Left Knee, 13: Left Ankle</li>
+                    <li>14: Right Eye, 15: Left Eye</li>
+                    <li>16: Right Ear, 17: Left Ear</li>
+                </ul>
+
+                <h4>Basic Pose Detection</h4>
+                <pre><code>import cv2
+import numpy as np
+
+# Body keypoint pairs for skeleton
+POSE_PAIRS = [
+    (1, 2), (1, 5), (2, 3), (3, 4), (5, 6), (6, 7),
+    (1, 8), (8, 9), (9, 10), (1, 11), (11, 12), (12, 13),
+    (1, 0), (0, 14), (14, 16), (0, 15), (15, 17)
+]
+
+# Load model
+net = cv2.dnn.readNetFromCaffe(
+    "models/pose_estimation/pose_deploy_linevec.prototxt",
+    "models/pose_estimation/pose_iter_440000.caffemodel"
+)
+
+# Load image
+img = cv2.imread('person.jpg')
+img_height, img_width = img.shape[:2]
+
+# Prepare input blob
+inWidth = 368
+inHeight = 368
+inpBlob = cv2.dnn.blobFromImage(img, 1.0 / 255, (inWidth, inHeight), 
+                                (0, 0, 0), swapRB=False, crop=False)
+
+# Set input and run forward pass
+net.setInput(inpBlob)
+output = net.forward()
+
+H = output.shape[2]
+W = output.shape[3]
+
+# Detect keypoints
+points = []
+for i in range(18):
+    probMap = output[0, i, :, :]
+    minVal, prob, minLoc, point = cv2.minMaxLoc(probMap)
+    
+    x = (img_width * point[0]) / W
+    y = (img_height * point[1]) / H
+    
+    if prob > 0.1:
+        points.append((int(x), int(y)))
+    else:
+        points.append(None)
+
+# Draw keypoints
+for i, point in enumerate(points):
+    if point is not None:
+        cv2.circle(img, point, 5, (0, 255, 255), thickness=-1, 
+                  lineType=cv2.FILLED)
+
+# Draw skeleton
+for pair in POSE_PAIRS:
+    partA, partB = pair[0], pair[1]
+    if points[partA] is not None and points[partB] is not None:
+        cv2.line(img, points[partA], points[partB], (0, 255, 0), 2)
+
+cv2.imshow('Pose Detection', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()</code></pre>
+
+                <h4>Working with Keypoint Data</h4>
+                <p><strong>Accessing specific keypoints:</strong></p>
+                <pre><code># Get specific keypoints
+nose = points[0]
+left_wrist = points[7]
+right_wrist = points[4]
+
+# Check if keypoint was detected
+if left_wrist is not None:
+    x, y = left_wrist
+    print(f"Left wrist at pixel ({x}, {y})")</code></pre>
+
+                <p><strong>Calculating distances:</strong></p>
+                <pre><code>import math
+
+def calculate_distance(point1, point2):
+    if point1 is None or point2 is None:
+        return None
+    x1, y1 = point1
+    x2, y2 = point2
+    return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+
+# Example: Distance between shoulders
+shoulder_width = calculate_distance(points[2], points[5])</code></pre>
+
+                <h4>Pose-based Interactions</h4>
+                <p><strong>Gesture Detection:</strong></p>
+                <pre><code># Detect raised hand (wrist above shoulder)
+left_wrist = points[7]
+left_shoulder = points[5]
+
+if left_wrist is not None and left_shoulder is not None:
+    if left_wrist[1] < left_shoulder[1]:
+        cv2.putText(frame, "LEFT HAND RAISED!", (50, 50),
+                   cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="ml-models">Integrating ML Models with OpenCV</h3>
+
+                <h4>OpenCV DNN Module</h4>
+                <p><strong>cv2.dnn</strong> (Deep Neural Network module) allows OpenCV to run deep learning models from various frameworks.</p>
+
+                <p><strong>Supported Frameworks:</strong></p>
+                <ul>
+                    <li>TensorFlow (.pb files)</li>
+                    <li>PyTorch (.pt files, via ONNX)</li>
+                    <li>Caffe (.caffemodel files)</li>
+                    <li>ONNX (.onnx files)</li>
+                    <li>Darknet (YOLO)</li>
+                </ul>
+
+                <h4>Loading Models</h4>
+                <pre><code># TensorFlow models
+net = cv2.dnn.readNetFromTensorflow('model.pb', 'config.pbtxt')
+
+# Caffe models
+net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'model.caffemodel')
+
+# ONNX models
+net = cv2.dnn.readNetFromONNX('model.onnx')
+
+# Darknet (YOLO)
+net = cv2.dnn.readNetFromDarknet('yolo.cfg', 'yolo.weights')</code></pre>
+
+                <h4>Running Inference</h4>
+                <pre><code># 1. Load model
+net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'model.caffemodel')
+
+# 2. Prepare input (create blob)
+blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300), 
+                              (104, 177, 123), swapRB=False, crop=False)
+
+# 3. Set input
+net.setInput(blob)
+
+# 4. Forward pass (inference)
+output = net.forward()
+
+# 5. Process output (format depends on model)</code></pre>
+
+                <div class="section-divider"></div>
+
+                <h3 id="ethics">Ethics & Critical Perspectives</h3>
+
+                <h4>Bias in Computer Vision Systems</h4>
+                <p><strong>The Problem is Systemic:</strong></p>
+                <p>CV bias isn't just a technical problem to "fix" - it's embedded in:</p>
+                <ul>
+                    <li>Who gets to create these systems</li>
+                    <li>What data is available and valued</li>
+                    <li>What problems are prioritized</li>
+                    <li>How success is measured</li>
+                    <li>Who benefits from deployment</li>
+                </ul>
+
+                <h4>Case Study: Gender Shades Research</h4>
+                <p>Joy Buolamwini and Timnit Gebru's 2018 study tested commercial face recognition systems:</p>
+                <ul>
+                    <li>Lighter males: 0.8% error</li>
+                    <li>Darker females: 34.7% error</li>
+                    <li><strong>43x worse for one group</strong></li>
+                </ul>
+
+                <p><strong>Why?</strong></p>
+                <ul>
+                    <li>Training datasets: 75% male, 80% lighter-skinned</li>
+                    <li>Testing datasets: Similarly biased</li>
+                    <li>Optimization: Maximize average accuracy (hides disparities)</li>
+                </ul>
+
+                <h4>Who is (In)visible to These Systems?</h4>
+                <p><strong>Visibility as Power:</strong></p>
+                <p>Being detected or not detected both have implications:</p>
+
+                <p><strong>Being Visible:</strong></p>
+                <ul>
+                    <li>Can participate in interactive systems</li>
+                    <li>Can be tracked and surveilled</li>
+                    <li>Can be targeted by advertising</li>
+                    <li>Can be profiled and categorized</li>
+                </ul>
+
+                <p><strong>Being Invisible:</strong></p>
+                <ul>
+                    <li>Excluded from interactive experiences</li>
+                    <li>Systems don't work for you</li>
+                    <li>Not represented in training data</li>
+                    <li>Erased from algorithmic vision</li>
+                </ul>
+
+                <h4>Responsible Use of Detection Technologies</h4>
+                <p><strong>Guidelines for Ethical CV Art:</strong></p>
+                <ol>
+                    <li><strong>Minimize Data Collection</strong> - Only detect what's necessary</li>
+                    <li><strong>Provide Transparency</strong> - Make detection visible</li>
+                    <li><strong>Enable Consent</strong> - Signage, opt-out mechanisms</li>
+                    <li><strong>Test Inclusively</strong> - Test with diverse participants</li>
+                    <li><strong>Question Necessity</strong> - Do you really need face detection?</li>
+                    <li><strong>Consider Context</strong> - Gallery vs. public space</li>
+                    <li><strong>Learn from Critics</strong> - Artists like Buolamwini, Harvey, Paglen</li>
+                </ol>
+
+                <div class="section-divider"></div>
+
+                <h3 id="assignments">Week 4 Assignments</h3>
+
+                <p>All week 4 assignments are due beginning of Week 5 class (November 21, 2025). Upload your assignments in appropriate folders in the <a href="https://drive.google.com/drive/u/0/folders/1rouEcwO-u__cibsNIJusFQpZvEHPWXVO" target="_blank">Week 4 Google Drive folder</a>.</p>
+
+                <h4>1. Reading for Week 5</h4>
+                <p><strong>"This is how AI bias really happens—and why it's so hard to fix"</strong></p>
+                <p>Available at: <a href="https://www.technologyreview.com/2019/02/04/137602/this-is-how-ai-bias-really-happensand-why-its-so-hard-to-fix/" target="_blank">The MIT Technology Review</a></p>
+
+                <p><strong>Focus on:</strong></p>
+                <ul>
+                    <li>How classification systems work</li>
+                    <li>Politics of categorization</li>
+                    <li>Who classifies? What gets classified?</li>
+                    <li>Connection to computer vision systems</li>
+                </ul>
+
+                <h4>2. Lab 4: CV Detection Systems</h4>
+                <p>Create a detection-based application that demonstrates your understanding of this week's techniques.</p>
+
+                <p><strong>Requirements:</strong></p>
+                <ol>
+                    <li>Use at least one detection technique (face, object, pose, or feature detection)</li>
+                    <li>Create interactive or creative output</li>
+                    <li>Demonstrate technical proficiency</li>
+                    <li>Consider ethical implications</li>
+                </ol>
+
+                <p><strong>Deliverables:</strong></p>
+                <ul>
+                    <li>Python script (.py file)</li>
+                    <li>Sample output (screenshots or video)</li>
+                    <li>Written reflection (300-500 words)</li>
+                </ul>
+
+                <h4>3. Final Project Proposal</h4>
+                <p>Your final project proposal should include:</p>
+                <ul>
+                    <li>Conceptual framework and artistic/critical intent</li>
+                    <li>Audience experience description</li>
+                    <li>Computer vision techniques you'll use</li>
+                    <li>Technical challenges and backup plans</li>
+                </ul>
+
+                <div class="section-divider"></div>
+
+                <h3 id="resources">Additional Resources</h3>
+
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="https://docs.opencv.org/master/d2/d58/tutorial_table_of_content_dnn.html" target="_blank">OpenCV DNN Module</a></li>
+                    <li><a href="https://docs.opencv.org/master/d2/d99/tutorial_js_face_detection.html" target="_blank">Face Detection Tutorial</a></li>
+                    <li><a href="https://docs.opencv.org/master/da/d9d/tutorial_dnn_yolo.html" target="_blank">Object Detection with YOLO</a></li>
+                    <li><a href="https://docs.opencv.org/master/d7/d60/classcv_1_1Feature2D.html" target="_blank">Feature Detection</a></li>
+                </ul>
+
+                <h4>Model Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/opencv/opencv_zoo" target="_blank">OpenCV Model Zoo</a></li>
+                    <li><a href="https://github.com/onnx/models" target="_blank">ONNX Model Zoo</a></li>
+                    <li><a href="https://tfhub.dev/" target="_blank">TensorFlow Hub</a></li>
+                    <li><a href="https://pytorch.org/hub/" target="_blank">PyTorch Hub</a></li>
+                </ul>
+
+                <h4>OpenPose Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank">OpenPose GitHub</a></li>
+                    <li><a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose/tree/master/models" target="_blank">OpenPose Models</a></li>
+                    <li><a href="https://learnopencv.com/deep-learning-based-human-pose-estimation-using-opencv-cpp-python/" target="_blank">OpenPose with OpenCV Tutorial</a></li>
+                </ul>
+
+                <p style="margin-top: 3rem; text-align: center; color: #999; font-size: 0.9rem;">
+                    <em>Last updated: November 13, 2025 - Week 4 covers computer vision detection systems including face detection, feature detection, object detection, and pose estimation, with critical perspectives on bias and ethics.</em>
+                </p>
+            </div>
         </section>
 
         <div class="text-center mt-2">
-            <a href="weeks.html" class="btn">← Back to All Weeks</a>
             <a href="week3.html" class="btn">← Previous Week</a>
+            <a href="weeks.html" class="btn">Back to All Weeks</a>
             <a href="week5.html" class="btn">Next Week →</a>
         </div>
     </div>
